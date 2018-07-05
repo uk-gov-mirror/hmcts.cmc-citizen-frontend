@@ -1,9 +1,9 @@
+{% from "components/phase-banner/macro.njk" import govukPhaseBanner %}
+
 {% block content %}{% endblock %}
 {% extends "template.njk" %}
 
 {% block pageTitle %}{{ t(heading) }} - {{ t(serviceName) }}{% endblock %}
-
-{% from "phase-banner/macro.njk" import govukPhaseBanner %}
 
 {% block head %}
   {% include "includes/head.njk" %}
@@ -15,10 +15,6 @@
       text: "beta"
     },
     html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
-  }) }}
-  {{ govukBackLink({
-    href: "#",
-    text: "Back"
   }) }}
 {% endblock %}
 
