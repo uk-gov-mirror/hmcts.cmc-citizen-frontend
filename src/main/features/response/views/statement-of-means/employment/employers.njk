@@ -14,13 +14,13 @@
 
 {% block content %}
 <div class="grid-row">
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <form method="post" novalidate>
       {{ csrfProtection(csrf) }}
 
       {% set noRowsError = form.errorFor('rows') %}
-      <div class="multiline {% if noRowsError %} form-group-error {% endif %}">
+      <div class="multiline {% if noRowsError %} govuk-form-group-error {% endif %}">
 
       {% if noRowsError %}<span class="error-message" id="rows[label]">{{ t(noRowsError) }}</span>{% endif %}
 
@@ -32,7 +32,7 @@
       </div>
 
       {% if canAddMoreJobs %}
-        <div id="add-event-container" class="form-group">
+        <div id="add-event-container" class="govuk-form-group">
           {{ linkButton('Add another job', 'action[addRow]', 'button button-secondary') }}
         </div>
       {% endif %}

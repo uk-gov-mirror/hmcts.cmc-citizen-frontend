@@ -7,13 +7,13 @@
 {% block content %}
 
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
 
         <p>{{ t('You’ll have to pay an additional fee if you want to:') }}</p>
 
-        <ul class="list list-bullet form-group">
+        <ul class="list list-bullet govuk-form-group">
           <li>{{ t('change the name of anyone involved with the claim') }}</li>
           <li>{{ t('change the basis of your claim - for example, saying goods were undelivered instead of faulty') }}</li>
           <li>{{ t('add information that significantly changes your claim') }}</li>

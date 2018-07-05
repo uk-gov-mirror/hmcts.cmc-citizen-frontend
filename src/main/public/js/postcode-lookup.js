@@ -85,11 +85,11 @@
       })
     allFormGroupErrors()
       .forEach(function (element) {
-        element.classList.remove('form-group-error')
+        element.classList.remove('govuk-form-group-error')
       })
     allAddressErrorMessages(postcodeLookupWidget)
       .forEach(function (element) {
-        element.classList.add('visually-hidden')
+        element.classList.add('govuk-visually-hidden')
       })
   }
 
@@ -98,7 +98,7 @@
   }
 
   function allFormGroupErrors () {
-    return document.querySelectorAll('.form-group-error')
+    return document.querySelectorAll('.govuk-form-group-error')
   }
 
   function allAddressErrorMessages (postcodeLookupWidget) {
@@ -210,7 +210,7 @@
       genericErrorMessage.classList.remove('hidden')
     }
 
-    postcodeLookupWidget.querySelector('.postcode-search-container').classList.add('form-group-error')
+    postcodeLookupWidget.querySelector('.postcode-search-container').classList.add('govuk-form-group-error')
   }
 
   function hideAddressError (postcodeLookupWidget) {
@@ -220,7 +220,7 @@
     hide(northernIrelandErrorMessage)
     hide(genericErrorMessage)
 
-    postcodeLookupWidget.querySelector('.postcode-search-container').classList.remove('form-group-error')
+    postcodeLookupWidget.querySelector('.postcode-search-container').classList.remove('govuk-form-group-error')
   }
 
   function handlePostcodeError (isNorthernIrelandPostcode, postcodeLookupWidget) {

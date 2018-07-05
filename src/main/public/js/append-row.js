@@ -22,7 +22,7 @@ $(document).ready(function () {
   function sanitizeContent (newRow) {
     newRow.find('input, textarea').val('')
 
-    newRow.removeClass('form-group-error')
+    newRow.removeClass('govuk-form-group-error')
     newRow.find('*').removeClass('form-control-error')
     newRow.find('.error-message').remove()
   }

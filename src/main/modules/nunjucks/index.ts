@@ -63,10 +63,11 @@ export class Nunjucks {
       path.join(__dirname, '..', '..', 'views'),
       path.join(__dirname, '..', '..', 'features'),
       path.join(__dirname, '..', '..', 'views', 'macro'),
-      path.join(__dirname, '..', '..', '..', '..', 'node_modules', '@hmcts', 'cmc-common-frontend', 'macros')
+      path.join(__dirname, '..', '..', '..', '..', 'node_modules', '@hmcts', 'cmc-common-frontend', 'macros'),
+      path.join(__dirname, '..', '..', '..', '..', 'node_modules', 'govuk-frontend')
     ], {
       autoescape: true,
-      throwOnUndefined: true,
+      throwOnUndefined: false,
       watch: this.developmentMode,
       express: app
     })

@@ -5,7 +5,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <form method="post" novalidate
         class="analytics-submit-event-trigger"
         data-event-action="SoM: Do you have a job?"
@@ -14,8 +14,8 @@
         {{ csrfProtection(csrf) }}
 
         {% set error = form.errorFor('declared') %}
-        <fieldset id="declared[label]" class="form-group {% if error %} form-group-error {% endif %}">
-          <legend class="visually-hidden">{{ t('Do you have a job?') }}</legend>
+        <fieldset id="declared[label]" class="govuk-form-group {% if error %} govuk-form-group-error {% endif %}">
+          <legend class="govuk-visually-hidden">{{ t('Do you have a job?') }}</legend>
 
           {% if error %}<span class="error-message">{{ t(error) }}</span>{% endif %}
 
@@ -25,7 +25,7 @@
 
           {% set errorCheckbox = form.errorFor('employed') %}
 
-          <div class="form-group panel panel-border-narrow js-hidden {% if errorCheckbox %} form-group-error {% endif %}" id="declared-true" aria-hidden="false">
+          <div class="govuk-form-group panel panel-border-narrow js-hidden {% if errorCheckbox %} govuk-form-group-error {% endif %}" id="declared-true" aria-hidden="false">
             <p>{{ t('What’s your employment status?') }}</p>
             <p class="form-hint">{{ t('You can select both') }}</p>
 

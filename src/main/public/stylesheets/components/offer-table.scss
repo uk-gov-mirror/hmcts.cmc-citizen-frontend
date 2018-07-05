@@ -1,5 +1,5 @@
 .offer-table {
-  @extend .form-group; // sass-lint:disable-line placeholder-in-extend
+  @extend .govuk-form-group; // sass-lint:disable-line placeholder-in-extend
 
   .label {
     @include media(mobile) {

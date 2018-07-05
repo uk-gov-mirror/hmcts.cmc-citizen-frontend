@@ -5,7 +5,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <form method="post" novalidate
         class="analytics-submit-event-trigger"
         data-event-action="SoM: Are you behind on tax payments?"
@@ -16,8 +16,8 @@
         <p>{{ t('For example National Insurance contributions, Income Tax or VAT.') }}</p>
 
         {% set errorBehindOnTaxPayments = form.errorFor('declared') %}
-        <fieldset id="declared[label]" class="form-group {% if errorBehindOnTaxPayments %} form-group-error {% endif %}">
-          <legend class="visually-hidden">{{ t('Are you behind on tax payments?') }}</legend>
+        <fieldset id="declared[label]" class="govuk-form-group {% if errorBehindOnTaxPayments %} govuk-form-group-error {% endif %}">
+          <legend class="govuk-visually-hidden">{{ t('Are you behind on tax payments?') }}</legend>
 
           {% if errorBehindOnTaxPayments %}<span class="error-message">{{ t(errorBehindOnTaxPayments) }}</span>{% endif %}
 
@@ -25,7 +25,7 @@
 
           {% set error = form.errorFor('amountYouOwe') or form.errorFor('amountYouOwe') %}
 
-          <div class="form-group panel panel-border-narrow js-hidden {% if errorCheckbox %} form-group-error {% endif %}" id="declared-true" aria-hidden="false">
+          <div class="govuk-form-group panel panel-border-narrow js-hidden {% if errorCheckbox %} govuk-form-group-error {% endif %}" id="declared-true" aria-hidden="false">
 
             {{ poundInput('Amount you owe', 'amountYouOwe', form) }}
 

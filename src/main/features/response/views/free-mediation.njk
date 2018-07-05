@@ -5,7 +5,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
       <p>{{ t('Many people resolve their dispute without a hearing by taking part in telephone mediation.') }}</p>
 
@@ -22,10 +22,10 @@
             data-event-action="Response: Free mediation"
             data-event-label-from="option" novalidate>
         {{ csrfProtection(csrf) }}
-        <div class="form-group">
+        <div class="govuk-form-group">
 
           <fieldset>
-            <legend id="option[label]" class="form-group">
+            <legend id="option[label]" class="govuk-form-group">
               <h2 class="bold-medium">{{ t('Will you try telephone mediation?') }}</h2>
             </legend>
 
@@ -47,7 +47,7 @@
             }}
           </fieldset>
         </div>
-        <div class="form-group">
+        <div class="govuk-form-group">
           {{ saveAndContinueButton() }}
         </div>
       </form>

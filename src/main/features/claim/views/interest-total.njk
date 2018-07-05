@@ -6,19 +6,19 @@
 {% block content %}
 
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
       <p>{{ t('You need to calculate interest for the different time periods or items and let us know the total. We’ll add it to your claim amount.') }}</p>
 
-      <details class="form-group">
+      <details class="govuk-form-group">
         <summary>{{ t('Help calculating interest') }}</summary>
         <div class="panel panel-border-narrow">
           <p>{{ t('For most types of debt the rate is usually 8%.') }}</p>
           <p>{{ t('To calculate this, use the steps below.') }}</p>
           <ol class="list-number">
-            <li class="form-group-compound">{{ t('Work out the yearly interest: take the amount you’re claiming and multiply it by 0.08 (which is 8%).') }}</li>
-            <li class="form-group-compound">{{ t('Work out the daily interest: divide your yearly interest from step 1 by 365 (the number of days in a year).') }}</li>
-            <li class="form-group-compound">{{ t('Work out the total amount of interest: multiply the daily interest from step 2 by the number of days the debt has been overdue.') }}</li>
+            <li class="govuk-form-group-compound">{{ t('Work out the yearly interest: take the amount you’re claiming and multiply it by 0.08 (which is 8%).') }}</li>
+            <li class="govuk-form-group-compound">{{ t('Work out the daily interest: divide your yearly interest from step 1 by 365 (the number of days in a year).') }}</li>
+            <li class="govuk-form-group-compound">{{ t('Work out the total amount of interest: multiply the daily interest from step 2 by the number of days the debt has been overdue.') }}</li>
           </ol>
           <div class="example">
             <p>{{ t('Example') }}</p>
@@ -31,14 +31,14 @@
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
 
-        <div class="form-group">
-          <div class="form-group">
+        <div class="govuk-form-group">
+          <div class="govuk-form-group">
             {{ poundInput('Total interest amount', 'amount', form) }}
           </div>
           {{ textArea('Show how you calculated the amount', 'reason', form, inputClass = 'full-width') }}
         </div>
 
-        <div class="form-group">
+        <div class="govuk-form-group">
           {{ saveAndContinueButton() }}
         </div>
       </form>

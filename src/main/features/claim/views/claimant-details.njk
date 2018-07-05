@@ -7,7 +7,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <h1 class="heading-large">
         <span class="heading-secondary">{{ t('Claimant') }}</span>
         {{ claim.claimData.claimant.name }}
@@ -29,7 +29,7 @@
       <p>{{ t('Email: <a href="mailto:{{ claimantEmail }}">{{ claimantEmail }}</a>', { claimantEmail: claim.claimantEmail }) | safe }} </p>
     </div>
 
-    <div class="column-one-third">
+    <div class="govuk-grid-column-one-third">
       {{ aboutClaimWidget(user, claim, showResponse = false) }}
     </div>
   </div>

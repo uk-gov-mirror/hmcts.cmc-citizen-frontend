@@ -6,7 +6,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <form method="post"
             class="analytics-submit-event-trigger"
             data-event-action="Defendant: Select payment option"
@@ -15,7 +15,7 @@
         {{ csrfProtection(csrf) }}
 
         <div class="notice">
-          <i class="icon icon-important"><span class="visually-hidden">{{ t('Warning') }}</span></i>
+          <i class="icon icon-important"><span class="govuk-visually-hidden">{{ t('Warning') }}</span></i>
           <strong class="bold-small">{{ t('You may receive a County Court Judgment (CCJ) if you don`t pay immediately.') }}</strong>
         </div>
 

@@ -5,13 +5,13 @@
 
 {% block content %}
   <div class="grid-row">
-      <div class="column-two-thirds">
+      <div class="govuk-grid-column-two-thirds">
 
         <p>{{ t('We’ll use this to tell them you’ve made a claim, as well as notifying them by post.') }}</p>
         <form novalidate method="post">
           {{ csrfProtection(csrf) }}
 
-          {{ emailInput('Their email address (optional)', 'address', form, labelClass='visually-hidden') }}
+          {{ emailInput('Their email address (optional)', 'address', form, labelClass='govuk-visually-hidden') }}
           {{ saveAndContinueButton() }}
         </form>
       </div>

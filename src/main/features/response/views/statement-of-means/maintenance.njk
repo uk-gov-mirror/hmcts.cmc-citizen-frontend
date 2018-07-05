@@ -5,7 +5,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <form method="post" novalidate
         class="analytics-submit-event-trigger"
         data-event-action="SoM: Do you or your partner pay maintenance for any children?"
@@ -14,8 +14,8 @@
         {{ csrfProtection(csrf) }}
 
         {% set errorOption = form.errorFor('declared') %}
-        <fieldset id="declared[label]" class="form-group {% if errorOption %} form-group-error {% endif %}">
-          <legend class="visually-hidden">{{ t('Do you or your partner pay maintenance for any children?') }}</legend>
+        <fieldset id="declared[label]" class="govuk-form-group {% if errorOption %} govuk-form-group-error {% endif %}">
+          <legend class="govuk-visually-hidden">{{ t('Do you or your partner pay maintenance for any children?') }}</legend>
 
           {% if errorOption %}<span class="error-message">{{ t(errorOption) }}</span>{% endif %}
 
@@ -23,7 +23,7 @@
             radioOption(form = form, label = 'Yes', name = 'declared', value = 'true', checked = form.valueFor('declared') === true)
           }}
 
-          <div class="form-group panel panel-border-narrow js-hidden"
+          <div class="govuk-form-group panel panel-border-narrow js-hidden"
             id="declared-true"
             aria-hidden="false">
 

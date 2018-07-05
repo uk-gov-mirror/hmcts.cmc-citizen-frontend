@@ -20,7 +20,7 @@
 
   {% set rowsErrorOccurred = form.errorFor('rows').length > 0 %}
   {% set anyErrorOccurred = balanceError or typeOfAccountError or jointError %}
-  <div class="triple-column{% if anyErrorOccurred or (rowsErrorOccurred and index == 0) %} form-group-error {% endif %}">
+  <div class="triple-column{% if anyErrorOccurred or (rowsErrorOccurred and index == 0) %} govuk-form-group-error {% endif %}">
 
     {% if rowsErrorOccurred and index == 0 %}<span class="error-message" id="rows[label]">{{ form.errorFor('rows') }}</span>{% endif %}
     {% if typeOfAccountError %}<span id="{{ typeOfAccountKey }}[label]" class="error-message">{{ t(typeOfAccountError) }}</span>{% endif %}
@@ -50,7 +50,7 @@
 
 {% block content %}
 <div class="grid-row">
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <p>{{ t('Put a minus (-) in front of the amount if you’re overdrawn. For example £-804.45.') }}</p>
 
@@ -85,7 +85,7 @@
         </div>
 
         {% if form.model and form.model.canAddMoreRows() %}
-        <div id="add-event-container" class="form-group">
+        <div id="add-event-container" class="govuk-form-group">
           {{ linkButton('Add another account', 'action[addRow]', 'button button-secondary') }}
         </div>
         {% endif %}

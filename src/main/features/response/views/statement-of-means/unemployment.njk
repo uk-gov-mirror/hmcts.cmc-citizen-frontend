@@ -5,7 +5,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <form method="post" novalidate
         class="analytics-submit-event-trigger"
         data-event-action="SoM: Are you unemployed or retired?"
@@ -14,8 +14,8 @@
         {{ csrfProtection(csrf) }}
 
         {% set optionError = form.errorFor('option') %}
-        <fieldset id="option[label]" class="form-group {% if optionError %} form-group-error {% endif %}">
-          <legend class="visually-hidden">{{ t('Are you unemployed or retired?') }}</legend>
+        <fieldset id="option[label]" class="govuk-form-group {% if optionError %} govuk-form-group-error {% endif %}">
+          <legend class="govuk-visually-hidden">{{ t('Are you unemployed or retired?') }}</legend>
 
           {% if optionError %}<span class="error-message">{{ t(optionError) }}</span>{% endif %}
 
@@ -24,7 +24,7 @@
           }}
 
           {% set unemploymentDetailsError = form.errorFor('unemploymentDetails') %}
-          <div class="form-group panel panel-border-narrow js-hidden {% if unemploymentDetailsError %} form-group-error {% endif %}"
+          <div class="govuk-form-group panel panel-border-narrow js-hidden {% if unemploymentDetailsError %} govuk-form-group-error {% endif %}"
                id="option-{{ UnemploymentType.UNEMPLOYED.value }}" aria-hidden="false">
 
             <p>{{ t('How long have you been unemployed?') }}</p>
@@ -41,7 +41,7 @@
           }}
 
           {% set otherDetailsError = form.errorFor('otherDetails') %}
-          <div class="form-group panel panel-border-narrow js-hidden {% if otherDetailsError %} form-group-error {% endif %}"
+          <div class="govuk-form-group panel panel-border-narrow js-hidden {% if otherDetailsError %} govuk-form-group-error {% endif %}"
                id="option-{{ UnemploymentType.OTHER.value }}" aria-hidden="false">
 
             {{ textInput(label = 'Give details', name = 'otherDetails[details]', form = form) }}

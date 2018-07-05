@@ -5,12 +5,12 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <form method="post">
         <fieldset class="notice">
           {{ csrfProtection(csrf) }}
           {% set error = form.errorFor('service') %}
-          <div id="service[label]" class="form-group{% if error %} form-group-error{% endif %}">
+          <div id="service[label]" class="govuk-form-group{% if error %} govuk-form-group-error{% endif %}">
           {% if error %}<span class="error-message">{{ t(error) }}</span>{% endif %}
             <div class="multiple-choice">
               <input id="service-moneyclaims"

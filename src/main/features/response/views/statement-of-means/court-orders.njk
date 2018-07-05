@@ -10,7 +10,7 @@
   {% set instalmentAmountKey = prefix + '[instalmentAmount]' %}
   {% set claimNumberKey = prefix + '[claimNumber]' %}
 
-  <div class="form-group {% if form.errorFor(amountKey) or form.errorFor(instalmentAmountKey) or form.errorFor(claimNumberKey) %} form-group-error {% endif %}">
+  <div class="govuk-form-group {% if form.errorFor(amountKey) or form.errorFor(instalmentAmountKey) or form.errorFor(claimNumberKey) %} govuk-form-group-error {% endif %}">
 
     {{ textInput('Claim number', name = claimNumberKey, form = form) }}
     {{ poundInput(label = 'Amount you owe', name = amountKey, form = form) }}
@@ -23,7 +23,7 @@
 
 {% block content %}
 <div class="grid-row">
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <form method="post" novalidate
           class="analytics-submit-event-trigger"
@@ -34,8 +34,8 @@
 
       {% set errorHasAnyCourtOrders = form.errorFor('declared') %}
       <div class="statement-of-means-container">
-        <fieldset id="declared[label]" class="form-group {% if errorHasAnyCourtOrders %} form-group-error {% endif %}">
-          <legend class="visually-hidden">{{ t('Are you paying money as a result of any court orders?') }}</legend>
+        <fieldset id="declared[label]" class="govuk-form-group {% if errorHasAnyCourtOrders %} govuk-form-group-error {% endif %}">
+          <legend class="govuk-visually-hidden">{{ t('Are you paying money as a result of any court orders?') }}</legend>
           {% if errorHasAnyCourtOrders %}<span class="error-message">{{ t(errorHasAnyCourtOrders) }}</span>{% endif %}
 
           {{
@@ -43,7 +43,7 @@
           }}
 
           {% set noRowsError = form.errorFor('rows') %}
-          <div class="form-group panel panel-border-narrow js-hidden {% if noRowsError %} form-group-error {% endif %}"
+          <div class="govuk-form-group panel panel-border-narrow js-hidden {% if noRowsError %} govuk-form-group-error {% endif %}"
                id="declared-true" aria-hidden="false">
 
             {% if noRowsError %}<span class="error-message" id="rows[label]">{{ t(noRowsError) }}</span>{% endif %}
@@ -53,7 +53,7 @@
             {% endfor %}
 
             {% if form.model and form.model.canAddMoreRows() %}
-            <div id="add-event-container" class="form-group">
+            <div id="add-event-container" class="govuk-form-group">
               {{ linkButton('Add another court order', 'action[addRow]', 'button button-secondary') }}
             </div>
             {% endif %}

@@ -16,7 +16,7 @@
   {% set descriptionError = form.errorFor(descriptionKey) %}
 
   {% set anyErrorOccurred = amountError or descriptionError %}
-  <div class="triple-column{% if anyErrorOccurred %} form-group-error {% endif %}">
+  <div class="triple-column{% if anyErrorOccurred %} govuk-form-group-error {% endif %}">
 
     {% if amountError %}<span id="{{ amountKey }}[label]" class="error-message">{{ t(amountError) }}</span>{% endif %}
     {% if descriptionError %}<span id="{{ descriptionKey }}[label]" class="error-message">{{ t(descriptionError) }}</span>{% endif %}
@@ -31,7 +31,7 @@
 
 {% block content %}
 <div class="grid-row">
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <form method="post" novalidate>
       {{ csrfProtection(csrf) }}
@@ -70,7 +70,7 @@
         {% endif %}
 
         {% if form.model and form.model.canAddMoreRows() %}
-          <div id="add-event-container" class="form-group">
+          <div id="add-event-container" class="govuk-form-group">
             {{ linkButton('Add another expense', 'action[addRow]', 'button button-secondary') }}
           </div>
         {% endif %}

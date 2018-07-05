@@ -37,6 +37,6 @@ export class AppInsights {
       return true
     })
 
-    appInsights.start()
+    // appInsights.start()
   }
 }

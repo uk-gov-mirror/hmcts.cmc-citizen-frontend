@@ -7,17 +7,17 @@
 {% block content %}
 
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
 
-        <div class="form-group">
+        <div class="govuk-form-group">
           {{ dateInput('date', form, hint = t('For example, {{ pastDate }}', { pastDate: pastDate | inputDate })) }}
           {{ textArea('Explain why you’re claiming from this date', 'reason', form, inputClass = 'full-width') }}
         </div>
 
-        <div class="form-group">
+        <div class="govuk-form-group">
           {{ saveAndContinueButton() }}
         </div>
       </form>

@@ -7,7 +7,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <h1 class="heading-large">
         <span class="heading-secondary">{{ t('Claim number:') }}</span>
         {{ claim.claimNumber }}
@@ -16,7 +16,7 @@
       {{ caseHistoryForDefendantClaimDetails(claim) }}
     </div>
 
-    <div class="column-one-third">
+    <div class="govuk-grid-column-one-third">
       {{ aboutClaimWidget(user, claim) }}
     </div>
   </div>

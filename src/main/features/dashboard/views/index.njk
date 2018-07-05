@@ -7,7 +7,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-full">
+    <div class="govuk-grid-column-full">
       {% if not claimDraftSaved %}
         <a id="start-now" class="newclaim" href="{{ EligibilityPaths.startPage.uri }}">{{ t('Make a new money claim') }}</a>
       {% endif %}
@@ -64,7 +64,7 @@
     {% endif %}
 
     {% if claimsAsDefendant | length or responseDraftSaved %}
-    <div class="column-full">
+    <div class="govuk-grid-column-full">
       <h2 class="heading-medium"> {{ t('Claims made against you') }}</h2>
 
       <table class="claim-dashboard">

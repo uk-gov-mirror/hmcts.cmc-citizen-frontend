@@ -6,19 +6,19 @@
 {% block content %}
 
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
 
         {% set error = form.errorFor('type') %}
 
-        <div class="form-group {% if error %} form-group-error {% endif %}">
+        <div class="govuk-form-group {% if error %} govuk-form-group-error {% endif %}">
 
           <fieldset id="type[label]">
 
             <legend>
-              <span class="visually-hidden">
+              <span class="govuk-visually-hidden">
                 {{ t(heading) }}
               </span>
               {% if error %}<span class="error-message">{{ t(error) }}</span>{% endif %}
@@ -31,13 +31,13 @@
               <label for="typedifferent">{{ t('Specific daily interest amount') }}</label>
             </div>
 
-            <div class="panel panel-border-narrow js-hidden {% if errorDailyAmount %} form-group-error {% endif %}" id="different">
+            <div class="panel panel-border-narrow js-hidden {% if errorDailyAmount %} govuk-form-group-error {% endif %}" id="different">
               {{ poundInput('Daily interest amount', 'dailyAmount', form) }}
             </div>
           </fieldset>
         </div>
 
-        <div class="form-group">
+        <div class="govuk-form-group">
           {{ saveAndContinueButton() }}
         </div>
       </form>

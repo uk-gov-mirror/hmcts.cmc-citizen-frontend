@@ -20,7 +20,7 @@
   {% set monthlyPaymentsError = form.errorFor(monthlyPaymentsKey) %}
 
   {% set anyErrorOccurred = debtError or totalOwedError or monthlyPaymentsError %}
-  <div class="triple-column{% if anyErrorOccurred %} form-group-error {% endif %}">
+  <div class="triple-column{% if anyErrorOccurred %} govuk-form-group-error {% endif %}">
 
     {% if debtError %}<span id="{{ debtKey }}[label]" class="error-message">{{ t(debtError) }}</span>{% endif %}
     {% if totalOwedError %}<span id="{{ totalOwedKey }}[label]" class="error-message">{{ t(totalOwedError) }}</span>{% endif %}
@@ -36,7 +36,7 @@
 
 {% block content %}
 <div class="grid-row">
-  <div class="column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
     <p>{{ t('For example due to credit cards, loans, rent or any other bills.') }}</p>
 
@@ -49,8 +49,8 @@
 
       {% set errorHasAnyDebts = form.errorFor('declared') %}
       <div class="statement-of-means-container">
-        <fieldset id="declared[label]" class="form-group {% if errorHasAnyDebts %} form-group-error {% endif %}">
-          <legend class="visually-hidden">{{ t('Do you have any debts?') }}</legend>
+        <fieldset id="declared[label]" class="govuk-form-group {% if errorHasAnyDebts %} govuk-form-group-error {% endif %}">
+          <legend class="govuk-visually-hidden">{{ t('Do you have any debts?') }}</legend>
           {% if errorHasAnyDebts %}<span class="error-message">{{ t(errorHasAnyDebts) }}</span>{% endif %}
 
           {{
@@ -58,7 +58,7 @@
           }}
 
           {% set noRowsError = form.errorFor('rows') %}
-          <div class="form-group panel panel-border-narrow js-hidden {% if noRowsError %} form-group-error {% endif %}"
+          <div class="govuk-form-group panel panel-border-narrow js-hidden {% if noRowsError %} govuk-form-group-error {% endif %}"
                id="declared-true" aria-hidden="false">
 
             {% if noRowsError %}<span class="error-message" id="rows[label]">{{ t(noRowsError) }}</span>{% endif %}
@@ -82,7 +82,7 @@
             </div>
 
             {% if form.model and form.model.canAddMoreRows() %}
-            <div id="add-event-container" class="form-group">
+            <div id="add-event-container" class="govuk-form-group">
               {{ linkButton('Add a debt', 'action[addRow]', 'button button-secondary') }}
             </div>
             {% endif %}

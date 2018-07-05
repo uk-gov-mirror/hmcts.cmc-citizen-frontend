@@ -6,7 +6,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
 
@@ -15,7 +15,7 @@
             {{ t('Total amount you’re claiming') }}
           </legend>
 
-          <table class="table-form form-group">
+          <table class="table-form govuk-form-group">
             <caption class="visuallyhidden"></caption>
             <thead>
             <tr>
@@ -56,7 +56,7 @@
             </tbody>
           </table>
 
-          <table class="table-form form-group">
+          <table class="table-form govuk-form-group">
             <caption class="visuallyhidden"></caption>
             <thead>
               <tr>

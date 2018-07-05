@@ -5,7 +5,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <form
         method="POST"
         class="analytics-submit-event-trigger"
@@ -16,9 +16,9 @@
         {{ csrfProtection(csrf) }}
 
         {% set error = form.errorFor('type') %}
-        <div class="form-group {% if error %} form-group-error {% endif %}">
+        <div class="govuk-form-group {% if error %} govuk-form-group-error {% endif %}">
           <fieldset id="type[label]">
-            <legend class="visually-hidden">{{ t('Where do you live?') }}</legend>
+            <legend class="govuk-visually-hidden">{{ t('Where do you live?') }}</legend>
             {% if error %}<span class="error-message">{{ t(error) }}</span>{% endif %}
 
             {% for type in ResidenceType.except(ResidenceType.OTHER) %}

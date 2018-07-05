@@ -5,7 +5,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <form method="post" novalidate
         class="analytics-submit-event-trigger"
         data-event-action="SoM: Do you support anyone else financially?"
@@ -14,7 +14,7 @@
         {{ csrfProtection(csrf) }}
 
         {% set error = form.errorFor('declared') %}
-        <fieldset id="declared[label]" class="form-group {% if error %} form-group-error {% endif %}">
+        <fieldset id="declared[label]" class="govuk-form-group {% if error %} govuk-form-group-error {% endif %}">
           <legend>{{ t('This can include adults and people you don’t live with.') }}</legend>
 
           {% if error %}<span class="error-message">{{ t(error) }}</span>{% endif %}
@@ -25,7 +25,7 @@
 
           {% set atLeastOfNumberShouldBeEnteredError = form.errorFor('numberOfPeople') %}
 
-          <div class="form-group panel panel-border-narrow js-hidden {% if atLeastOfNumberShouldBeEnteredError %} form-group-error {% endif %}"
+          <div class="govuk-form-group panel panel-border-narrow js-hidden {% if atLeastOfNumberShouldBeEnteredError %} govuk-form-group-error {% endif %}"
                id="declared-true" aria-hidden="false">
 
           {% if atLeastOfNumberShouldBeEnteredError %}

@@ -11,6 +11,7 @@ const fs = require('fs')
 const repoRoot = path.join(__dirname, '/')
 const govUkFrontendToolkitRoot = path.join(repoRoot, 'node_modules/govuk_frontend_toolkit/stylesheets')
 const govUkElementRoot = path.join(repoRoot, 'node_modules/govuk-elements-sass/public/sass')
+const govukFrontend = path.join(repoRoot, 'node_modules/govuk-frontend')
 
 const assetsDirectory = './src/main/public'
 const stylesheetsDirectory = `${assetsDirectory}/stylesheets`
@@ -21,7 +22,8 @@ gulp.task('sass', (done) => {
     .pipe(sass({
       includePaths: [
         govUkFrontendToolkitRoot,
-        govUkElementRoot
+        govUkElementRoot,
+        govukFrontend
       ]
     }))
     .pipe(sass())

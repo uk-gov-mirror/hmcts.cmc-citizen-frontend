@@ -6,12 +6,12 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <form method="post" class="analytics-submit-event-trigger" data-event-action="CCJ: Select defendant date of birth" data-event-label-from="known" novalidate>
         {{ csrfProtection(csrf) }}
 
         {% set error = form.errorFor('known') %}
-        <fieldset id="known[label]" class="form-group {% if error %} form-group-error {% endif %}">
+        <fieldset id="known[label]" class="govuk-form-group {% if error %} govuk-form-group-error {% endif %}">
           <legend>
             <span class="visuallyhidden">
               {{ t('Do you know the defendant’s date of birth?') }}
@@ -23,7 +23,7 @@
             radioOption(form = form, label = 'Yes', name = 'known', value = 'true', checked = form.valueFor('known') === true, bold = true)
           }}
 
-          <div class="form-group panel panel-border-narrow js-hidden " id="known-true" aria-hidden="false">
+          <div class="govuk-form-group panel panel-border-narrow js-hidden " id="known-true" aria-hidden="false">
             {{ dateInput(form = form, name = 'date', hint = 'For example, 29 05 1985') }}
           </div>
 

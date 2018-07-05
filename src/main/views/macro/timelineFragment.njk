@@ -10,7 +10,7 @@
   {% set descriptionError = form.errorFor(descriptionKey) %}
   {% set descriptionValue = form.valueFor(descriptionKey) %}
 
-  <div class="multiline-row {% if dateError or descriptionError %} form-group-error {% endif %}">
+  <div class="multiline-row {% if dateError or descriptionError %} govuk-form-group-error {% endif %}">
     {% if dateError %}
     <span class="error-message" id="{{ dateKey }}[label]">
       {{ t(dateError) }}
@@ -40,7 +40,7 @@
 {% macro timelineFragment(form) %}
 
   {% set noRowsError = form.errorFor('rows') %}
-  <div class="multiline {% if noRowsError %} form-group-error {% endif %}">
+  <div class="multiline {% if noRowsError %} govuk-form-group-error {% endif %}">
     {% if noRowsError %}<span class="error-message" id="rows[label]">{{ t(noRowsError) }}</span>{% endif %}
     <div class="multiline-headings">
       <div class="multiline-column-1">
@@ -62,7 +62,7 @@
   </div>
 
   {% if form.model and form.model.canAddMoreRows() %}
-    <div id="add-event-container" class="form-group">
+    <div id="add-event-container" class="govuk-form-group">
       {{ linkButton('Add another event', 'action[addRow]', 'button button-secondary') }}
     </div>
   {% endif %}

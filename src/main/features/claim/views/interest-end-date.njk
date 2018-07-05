@@ -7,12 +7,12 @@
 {% block content %}
 
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
 
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
 
-        <div class="form-group {% if error %} form-group-error {% endif %}">
+        <div class="govuk-form-group {% if error %} govuk-form-group-error {% endif %}">
 
           {% set name = 'option' %}
 
@@ -41,7 +41,7 @@
           }}
         </div>
 
-        <div class="form-group">
+        <div class="govuk-form-group">
           {{ saveAndContinueButton() }}
         </div>
       </form>

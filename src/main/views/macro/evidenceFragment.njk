@@ -7,8 +7,8 @@
   {% set typeValue = form.valueFor(typeKey).value %}
   {% set typeErrorExist = form.errorFor('rows[' + index + '][type]').length > 0 %}
 
-  <div class="multiline-row {% if typeErrorExist %} form-group-error {% endif %}">
-    <label class="visually-hidden" for="rows[{{ index }}][type]">{{ index + 1 }}{{ t('. Evidence') }}</label>
+  <div class="multiline-row {% if typeErrorExist %} govuk-form-group-error {% endif %}">
+    <label class="govuk-visually-hidden" for="rows[{{ index }}][type]">{{ index + 1 }}{{ t('. Evidence') }}</label>
     {% if typeErrorExist %}
       <span class="error-message" id="{{ typeKey }}[label]">
         {{ t(form.errorFor(typeKey)) }}
@@ -26,7 +26,7 @@
       {% set descriptionKey = 'rows[' + index + '][description]' %}
       {% set valueDescription = form.valueFor(descriptionKey) %}
       {% set errorDescription = form.errorFor(descriptionKey) %}
-      <div class="form-group {% if errorDescription %} form-group-error {% endif %}">
+      <div class="govuk-form-group {% if errorDescription %} govuk-form-group-error {% endif %}">
         <label for="{{ descriptionKey }}" id="{{ descriptionKey }}[label]" class="form-label">
           {{ t('Describe this evidence in more detail (optional).') }}
 
@@ -72,7 +72,7 @@
   </div>
 
   {% if form.model and form.model.canAddMoreRows() %}
-    <div id="add-event-container" class="form-group">
+    <div id="add-event-container" class="govuk-form-group">
       {{ linkButton('Add more evidence', 'action[addRow]', 'button button-secondary') }}
     </div>
   {% endif %}

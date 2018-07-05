@@ -7,7 +7,7 @@
 
 {% block content %}
   <div class="grid-row">
-    <div class="column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
       <div class="govuk-box-highlight">
         <h1 class="bold-large">{{ t('You’ve submitted your response') }}</h1>
         <p class="reference-number">
@@ -22,7 +22,7 @@
         </p>
       </div>
 
-      <h2 class="bold-large form-group">{{ t('Your response') }}</h2>
+      <h2 class="bold-large govuk-form-group">{{ t('Your response') }}</h2>
 
       {% if claim.response.responseType === domain.ResponseType.FULL_ADMISSION %}
         {% include "./confirmation/full-admission.njk" %}
