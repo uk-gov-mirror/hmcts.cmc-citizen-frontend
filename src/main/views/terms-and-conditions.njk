@@ -10,6 +10,8 @@
 {% block main_content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ t(heading) }}</h1>
+
       <p class="govuk-body">
         {{ t('By using this service you’re agreeing to the following terms of use.'
         + 'This includes the ' + internalLink('privacy policy', privacyPolicyUri)) | safe }}

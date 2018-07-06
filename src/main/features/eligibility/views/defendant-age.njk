@@ -15,6 +15,7 @@
             data-event-label-from="{{ name }}">
         {{ csrfProtection(csrf) }}
 
+        {% set error = { text: form.errorFor(name) } if form.errorFor(name) else undefined %}
         {{ govukRadios({
           name: name,
           fieldset: {
@@ -24,6 +25,7 @@
               classes: 'govuk-fieldset__legend--l'
             }
           },
+          errorMessage: error,
           items: [
             {
               value: DefendantAgeOption.YES.option,
