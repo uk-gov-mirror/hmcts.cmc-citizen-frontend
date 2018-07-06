@@ -1,6 +1,7 @@
 import { ValidateNested, ValidationError } from 'class-validator'
 
 import * as _ from 'lodash'
+import * as i18next from 'i18next'
 
 export class Converter {
 
@@ -67,6 +68,12 @@ export class Form<Model> {
 
   hasErrors (): boolean {
     return this.errors.length > 0
+  }
+
+  errorsForDisplay (): object[] {
+    return this.errors.map(error => {
+      return { text: i18next.t(error.message), href: `#${error.fieldName}-error` }
+    })
   }
 
   /**

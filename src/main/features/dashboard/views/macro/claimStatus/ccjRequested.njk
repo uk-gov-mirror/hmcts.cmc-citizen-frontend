@@ -6,7 +6,7 @@
 {% endmacro %}
 
 {% macro ccjRequestedForClaimantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('You’ve requested a County Court Judgment (CCJ)') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('You’ve requested a County Court Judgment (CCJ)') }}</h2>
   <p class="govuk-body">
     {{ t('We’ll contact you within 14 days to tell you whether the judgment has been entered.') }}
   </p>
@@ -22,7 +22,7 @@
 {% endmacro %}
 
 {% macro ccjRequestedForDefendantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('The claimant has requested a CCJ against you') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('The claimant has requested a CCJ against you') }}</h2>
   <p class="govuk-body">
     {{ t('You didn’t respond to this claim by the deadline of {{ responseDeadline }}.',
       { responseDeadline: claim.responseDeadline | date }) }}

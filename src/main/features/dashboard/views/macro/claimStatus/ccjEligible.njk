@@ -6,7 +6,7 @@
 
 {% macro ccjEligibleForClaimantClaimDetails(claim, csrf) %}
   {% set defendantName = claim.claimData.defendant.name %}
-  <h2 class="heading-small">{{ t('You can request a County Court Judgment') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('You can request a County Court Judgment') }}</h2>
   <p class="govuk-body">
     {{ t('{{ defendantName }} has not responded to your claim by the deadline. '
       + 'You can request a County Court Judgment (CCJ) against them.',
@@ -37,7 +37,7 @@
 {% endmacro %}
 
 {% macro ccjEligibleForDefendantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('You haven’t responded to this claim') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('You haven’t responded to this claim') }}</h2>
   <p class="govuk-body">
     {{ t('You haven’t responded to the claim. {{ claimantName }} can now ask for a County Court Judgment against you.',
       { claimantName: claim.claimData.claimant.name }) }}

@@ -1,6 +1,7 @@
 {% extends "layout.njk" %}
-{% from "form.njk" import csrfProtection, errorSummary, radioGroup, saveAndContinueButton %}
+{% from "form.njk" import csrfProtection, errorSummary, saveAndContinueButton %}
 {% from "externalLink.njk" import externalLink %}
+{% from "radios/macro.njk" import govukRadios %}
 
 {% set heading = 'Are you claiming against a government department?' %}
 {% set additionalInformation = t(externalLink('See a list of government departments',
@@ -10,8 +11,6 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p class="govuk-body">{{ additionalInformation | safe }}</p>
-
       {% set name = 'governmentDepartment' %}
 
       <form novalidate method="post" class="analytics-submit-event-trigger"
@@ -19,19 +18,30 @@
             data-event-label-from="{{ name }}">
         {{ csrfProtection(csrf) }}
 
-        {{
-          radioGroup(
-            label = heading,
-            name = name,
-            options = [
-              {'label': 'Yes', value: YesNoOption.YES.option, checked: (form.valueFor(name) === YesNoOption.YES)},
-              {'label': 'No', value: YesNoOption.NO.option, checked: (form.valueFor(name) === YesNoOption.NO)}
-            ],
-            form = form,
-            isInline = true,
-            labelForScreenReadersOnly = true
-          )
-        }}
+        {{ govukRadios({
+          name: name,
+          hint: { html: additionalInformation },
+          classes: 'govuk-radios--inline',
+          fieldset: {
+            legend: {
+              text: t(heading),
+              isPageHeading: true,
+              classes: 'govuk-fieldset__legend--l'
+            }
+          },
+          items: [
+            {
+              value: YesNoOption.YES.option,
+              text: t('Yes'),
+              checked: (form.valueFor(name) === YesNoOption.YES)
+            },
+            {
+              value: YesNoOption.NO.option,
+              text: t('No'),
+              checked: (form.valueFor(name) === YesNoOption.NO)
+            }
+          ]
+        }) }}
 
         {{ saveAndContinueButton() }}
 

@@ -1,6 +1,15 @@
 {% from "phase-banner/macro.njk" import govukPhaseBanner %}
 
-{% block content %}{% endblock %}
+{% block content %}
+  {{ super() }}
+  hi sadas
+  {% block afterContent %}
+    hi hi adsa ds
+  {% endblock %}
+
+{% endblock %}
+
+
 {% extends "template.njk" %}
 
 {% block pageTitle %}{{ t(heading) }} - {{ t(serviceName) }}{% endblock %}
@@ -89,5 +98,3 @@
     }
   }) }}
 {% endblock %}
-
-

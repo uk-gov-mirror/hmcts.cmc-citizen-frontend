@@ -6,7 +6,7 @@
 {% endmacro %}
 
 {% macro claimRejectedAlreadyPaidForClaimantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('The defendant’s response') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('The defendant’s response') }}</h2>
   <p class="govuk-body">
     {{ t('{{ defendantName }} believes that they’ve paid the claim in full. '
       + 'Email {{ emailAddress }} if you want to proceed with the claim '
@@ -25,7 +25,7 @@
 {% endmacro %}
 
 {% macro claimRejectedAlreadyPaidForDefendantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('Your response to the claim') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('Your response to the claim') }}</h2>
   <p class="govuk-body">
     {{ t('We’ve emailed {{ claimantName }} telling them when and how you said you paid the claim.',
       { claimantName: claim.claimData.claimant.name }) }}
@@ -45,7 +45,7 @@
 {% endmacro %}
 
 {% macro claimRejectedFreeMediationNOForClaimantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('The defendant’s response') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('The defendant’s response') }}</h2>
   <p class="govuk-body">
     {{ t('{{ defendantName }} has rejected your claim. We’ll send you a directions questionnaire – '
       + 'this is a form which you must complete to tell us more about the claim.',
@@ -61,7 +61,7 @@
 {% endmacro %}
 
 {% macro claimRejectedFreeMediationNOForDefendantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('Your response to the claim') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('Your response to the claim') }}</h2>
   <p class="govuk-body">
     {{ t('You have rejected the claim. We’ll send you a directions questionnaire – this is a form which you must '
       + 'complete to tell us more about the claim.') }}
@@ -77,7 +77,7 @@
 {% endmacro %}
 
 {% macro claimRejectedFreeMediationYESForClaimantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('The defendant’s response') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('The defendant’s response') }}</h2>
   <p class="govuk-body">
     {{ t('{{ defendantName }} has rejected the claim. They’ve suggested mediation to help resolve this dispute.',
       { defendantName: claim.claimData.defendant.name }) }}
@@ -99,7 +99,7 @@
 {% endmacro %}
 
 {% macro claimRejectedFreeMediationYESForDefendantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('Your response to the claim') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('Your response to the claim') }}</h2>
   <p class="govuk-body">
     {{ t('You have rejected the claim. You’ve suggested mediation.') }}
   </p>

@@ -16,7 +16,7 @@
 {% if claim.response.paymentOption === domain.PaymentOption.INSTALMENTS %}
   <p class="govuk-body">{{ t('You should:') }}</p>
 
-  <ul class="list list-bullet">
+  <ul class="govuk-list govuk-list--bullet">
     <li>{{ t('set up your repayment plan to begin when you said it would') }}</li>
     <li>{{ t('<a class="govuk-link" href="{{ link }}">contact {{ claimantName }}</a> if you need their payment details', { claimantName: claimantName, link: claimantDetailsPageURI }) | safe }}</li>
     <li>{{ t('make sure you get a receipt for any payments') }}</li>

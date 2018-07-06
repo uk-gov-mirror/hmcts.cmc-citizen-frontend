@@ -22,7 +22,7 @@
         <li>
           {{ t('Complete <a class="govuk-link" href="{{ link }}" download="download" target="_blank">defence and counterclaim form N9B</a> entering these details:',
           { link : [asset_paths["pdf"] + '/OCON9B.pdf']}) | safe }}
-          <ul class="list list-bullet">
+          <ul class="govuk-list govuk-list--bullet">
             <li>{{ t('Claim number') }} {{ claim.claimNumber }}</li>
             <li>{{ t('Claimant') }} {{ claim.claimData.claimant.name }}</li>
             <li>{{ t('Defendant') }} {{ response.defendantDetails.partyDetails.name }}</li>

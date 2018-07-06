@@ -16,7 +16,7 @@
     <form method="post" novalidate class="payment-plan-calculation">
       {{ csrfProtection(csrf) }}
 
-      <h2 class="heading-small">Your finances</h2>
+      <h2 class="govuk-heading-s">Your finances</h2>
       <p class="govuk-body">{{ t('Your total monthly income is {{ monthlyIncome }}',
           { monthlyIncome: monthlyIncome | numeral }) }}</p>
       <p class="govuk-body">{{ t('Your total monthly expenses is {{ monthlyExpenses }}',
@@ -58,7 +58,7 @@
 
       {{ linkButton('Calculate length of repayment plan', 'action[calculatePaymentPlan]', 'button button-secondary calculateLengthOfRepayment') }}
 
-      <h2 class="heading-small">Length of repayment plan</h2>
+      <h2 class="govuk-heading-s">Length of repayment plan</h2>
       <p id="lengthOfRepayment" class="lengthOfRepayment"> {{ paymentLength | default('-') }} </p>
 
       <div class="govuk-form-group">

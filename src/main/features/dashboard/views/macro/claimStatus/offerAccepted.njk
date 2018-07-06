@@ -10,7 +10,7 @@
 
 {% macro offerAcceptedForClaimantClaimDetails(claim) %}
   {% set defendantName = claim.claimData.defendant.name %}
-  <h2 class="heading-small">{{ t('Settle out of court') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('Settle out of court') }}</h2>
   <p class="govuk-body">
     {{ t('You’ve agreed to the offer made by {{ defendantName }} and signed an agreement to settle your claim. ',
       { defendantName: defendantName }) }}
@@ -29,7 +29,7 @@
 {% endmacro %}
 
 {% macro offerAcceptedForDefendantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('Settle out of court') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('Settle out of court') }}</h2>
   <p class="govuk-body">
     {{ t('The claimant has accepted your offer and signed a legal agreement. You need to sign the agreement to settle out of court.') }}
   </p>

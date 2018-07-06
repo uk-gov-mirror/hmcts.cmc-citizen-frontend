@@ -6,7 +6,7 @@
 
   <p class="govuk-body">{{ t('You need to make sure that:') }}</p>
 
-  <ul class="list list-bullet">
+  <ul class="govuk-list govuk-list--bullet">
     <li>{{ t('they get the money before 4pm on {{ paymentDate }} - they can request a County Court Judgment against you if not', { paymentDate: claim.response.paymentDate | date }) }}</li>
     <li>{{ t('any cheques or bank transfers are clear in their account by the deadline') }}</li>
     <li>{{ t('you get a receipt for any payments') }}</li>

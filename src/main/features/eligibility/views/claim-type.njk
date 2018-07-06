@@ -1,5 +1,6 @@
 {% extends "layout.njk" %}
 {% from "form.njk" import csrfProtection, errorSummary, radioGroup, saveAndContinueButton %}
+{% from "radios/macro.njk" import govukRadios %}
 
 {% set heading = 'Who are you making the claim for?' %}
 
@@ -14,34 +15,33 @@
             data-event-label-from="{{ name }}">
         {{ csrfProtection(csrf) }}
 
-        {{
-        radioGroup(
-        form = form,
-        label = heading,
-        labelForScreenReadersOnly = true,
-        name = name,
-        options = [
-        {
-          bold: false,
-          label: ClaimType.PERSONAL_CLAIM.displayValue,
-          value: ClaimType.PERSONAL_CLAIM.option,
-          checked: form.valueFor(name) === ClaimType.PERSONAL_CLAIM
-        },
-        {
-          bold: false,
-          label: ClaimType.MULTIPLE_CLAIM.displayValue,
-          value: ClaimType.MULTIPLE_CLAIM.option,
-          checked: form.valueFor(name) === ClaimType.MULTIPLE_CLAIM
-        },
-        {
-          bold: false,
-          label: ClaimType.REPRESENTATIVE_CLAIM.displayValue,
-          value: ClaimType.REPRESENTATIVE_CLAIM.option,
-          checked: form.valueFor(name) === ClaimType.REPRESENTATIVE_CLAIM
-        }
-        ]
-        )
-        }}
+        {{ govukRadios({
+          name: name,
+          fieldset: {
+            legend: {
+              text: t(heading),
+              isPageHeading: true,
+              classes: 'govuk-fieldset__legend--l'
+            }
+          },
+          items: [
+            {
+              value: ClaimType.PERSONAL_CLAIM.option,
+              text: t(ClaimType.PERSONAL_CLAIM.displayValue),
+              checked: form.valueFor(name) === ClaimType.PERSONAL_CLAIM
+            },
+            {
+              value: ClaimType.MULTIPLE_CLAIM.option,
+              text: t(ClaimType.MULTIPLE_CLAIM.displayValue),
+              checked: form.valueFor(name) === ClaimType.MULTIPLE_CLAIM
+            },
+            {
+              value: ClaimType.REPRESENTATIVE_CLAIM.option,
+              text: t(ClaimType.REPRESENTATIVE_CLAIM.displayValue),
+              checked: form.valueFor(name) === ClaimType.REPRESENTATIVE_CLAIM
+            }
+          ]
+        }) }}
 
         {{ saveAndContinueButton() }}
 

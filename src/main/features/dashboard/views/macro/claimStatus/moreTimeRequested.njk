@@ -6,7 +6,7 @@
 {% endmacro %}
 
 {% macro moreTimeRequestedForClaimantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('The defendant has requested more time to respond') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('The defendant has requested more time to respond') }}</h2>
   <p class="govuk-body">
     {{ t('{{ defendantName }} has requested an extra 14 days to respond. They need to respond by {{ responseDeadline }}.',
       { defendantName: claim.claimData.defendant.name, responseDeadline: claim.responseDeadline | date }) | safe }}
@@ -19,7 +19,7 @@
 {% endmacro %}
 
 {% macro moreTimeRequestedForDefendantClaimDetails(claim) %}
-  <h2 class="heading-small">{{ t('More time requested') }}</h2>
+  <h2 class="govuk-heading-s">{{ t('More time requested') }}</h2>
   <p class="govuk-body">
     {{ t('You need to respond before 4pm on {{ responseDeadline }} {{ remainingTime }}.',
       { responseDeadline: claim.responseDeadline | date, remainingTime: timeRemaining(claim.remainingDays, isAfter4pm()) }) | safe }}

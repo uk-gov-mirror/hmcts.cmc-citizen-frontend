@@ -1,5 +1,6 @@
 {% extends "layout.njk" %}
-{% from "form.njk" import csrfProtection, radioGroup, errorSummary, saveAndContinueButton %}
+{% from "form.njk" import csrfProtection, errorSummary, saveAndContinueButton %}
+{% from "radios/macro.njk" import govukRadios %}
 
 {% set heading = 'Is your claim for a tenancy deposit?' %}
 {% set additionalInformation = t('You could be a tenant or a landlord.') %}
@@ -8,8 +9,6 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p class="govuk-body">{{ additionalInformation }}</p>
-
       {% set name = 'claimIsForTenancyDeposit' %}
 
       <form novalidate method="post" class="analytics-submit-event-trigger"
@@ -17,19 +16,30 @@
             data-event-label-from="{{ name }}">
         {{ csrfProtection(csrf) }}
 
-        {{
-        radioGroup(
-          label = heading,
-          name = name,
-          options = [
-            {'label': 'Yes', value: YesNoOption.YES.option, checked: (form.valueFor(name) === YesNoOption.YES)},
-            {'label': 'No', value: YesNoOption.NO.option, checked: (form.valueFor(name) === YesNoOption.NO)}
-          ],
-          form = form,
-          isInline = true,
-          labelForScreenReadersOnly = true
-          )
-        }}
+        {{ govukRadios({
+          name: name,
+          hint: { text: additionalInformation },
+          classes: 'govuk-radios--inline',
+          fieldset: {
+            legend: {
+              text: t(heading),
+              isPageHeading: true,
+              classes: 'govuk-fieldset__legend--l'
+            }
+          },
+          items: [
+            {
+              value: YesNoOption.YES.option,
+              text: t('Yes'),
+              checked: (form.valueFor(name) === YesNoOption.YES)
+            },
+            {
+              value: YesNoOption.NO.option,
+              text: t('No'),
+              checked: (form.valueFor(name) === YesNoOption.NO)
+            }
+          ]
+        }) }}
 
         {{ saveAndContinueButton() }}
 

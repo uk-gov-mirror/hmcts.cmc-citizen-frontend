@@ -2,24 +2,26 @@
 
 {% set heading = 'Get the details right' %}
 
-{% from "form.njk" import csrfProtection, submitButton %}
+{% from "form.njk" import csrfProtection %}
+{% from "button/macro.njk" import govukButton %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ t(heading) }}</h1>
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
 
         <p class="govuk-body">{{ t('You’ll have to pay an additional fee if you want to:') }}</p>
 
-        <ul class="list list-bullet govuk-form-group">
+        <ul class="govuk-list govuk-list--bullet govuk-form-group">
           <li>{{ t('change the name of anyone involved with the claim') }}</li>
           <li>{{ t('change the basis of your claim - for example, saying goods were undelivered instead of faulty') }}</li>
           <li>{{ t('add information that significantly changes your claim') }}</li>
         </ul>
 
-        {{ submitButton('I confirm I’ve read this') }}
+        {{ govukButton({ text: t('I confirm I’ve read this') }) }}
       </form>
     </div>
   </div>

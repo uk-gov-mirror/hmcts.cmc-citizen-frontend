@@ -14,7 +14,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <div class="description-block">
-      <h3 class="heading-small">Their evidence</h3>
+      <h3 class="govuk-heading-s">Their evidence</h3>
       {% if evidence.rows.length > 0 %}
         <div class="form-fields">
           <table>
@@ -41,7 +41,7 @@
 
     <form method="post" novalidate>
       {{ csrfProtection(csrf) }}
-      <h3 class="heading-small">{{ t('List your evidence (optional)') }}</h3>
+      <h3 class="govuk-heading-s">{{ t('List your evidence (optional)') }}</h3>
       <p class="govuk-body">
         {{
           t('You only need to list your evidence for now. You provide the actual evidence if the claim goes to court.')
@@ -52,7 +52,7 @@
 
       <div class="govuk-form-group">
         <label class="form-label-bold" for="comment">
-          <h3 class="heading-small">{{ t('List any parts of their evidence you disagree with (optional)') }}</h3>
+          <h3 class="govuk-heading-s">{{ t('List any parts of their evidence you disagree with (optional)') }}</h3>
         </label>
         <textarea id="comment" name="comment"
           class="form-control form-control-3-4 form-control-medium"

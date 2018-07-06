@@ -9,7 +9,7 @@
   <div class="govuk-grid-column-two-thirds">
 
     <div class="description-block">
-      <h3 class="heading-small">Their timeline</h3>
+      <h3 class="govuk-heading-s">Their timeline</h3>
       <div class="form-fields">
         <table>
           <thead>
@@ -32,14 +32,14 @@
 
     <form method="post" novalidate>
       {{ csrfProtection(csrf) }}
-      <h2 class="heading-small">{{ t('Add your timeline of events (optional)') }}</h2>
+      <h2 class="govuk-heading-s">{{ t('Add your timeline of events (optional)') }}</h2>
       <p class="govuk-body">{{ t('Include dates if you know them.') }}</p>
 
       {{ timelineFragment(form) }}
 
       <div class="govuk-form-group">
         <label class="form-label-bold" for="comment">
-          <h3 class="heading-small">Add any comments about their timeline (optional)</h3>
+          <h3 class="govuk-heading-s">Add any comments about their timeline (optional)</h3>
         </label>
         <textarea id="comment" name="comment"
           class="form-control form-control-3-4 form-control-medium"
