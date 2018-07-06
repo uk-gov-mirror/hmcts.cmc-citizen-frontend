@@ -1,22 +1,22 @@
 <ul>
     <li>
-      <a href="{{ AppPaths.cookiesPage.uri }}">{{ t('Cookies') }}</a>
+      <a class="govuk-link" href="{{ AppPaths.cookiesPage.uri }}">{{ t('Cookies') }}</a>
     </li>
     <li>
-      <a href="{{ AppPaths.privacyPolicyPage.uri }}">{{ t('Privacy Policy') }}</a>
+      <a class="govuk-link" href="{{ AppPaths.privacyPolicyPage.uri }}">{{ t('Privacy Policy') }}</a>
     </li>
     <li>
-      <a href="{{ AppPaths.termsAndConditionsPage.uri }}">{{ t('Terms and conditions') }}</a>
+      <a class="govuk-link" href="{{ AppPaths.termsAndConditionsPage.uri }}">{{ t('Terms and conditions') }}</a>
     </li>
     <li>
-      <a href="https://www.gov.uk/help">{{ t('Help using GOV.UK') }}</a>
+      <a class="govuk-link" href="https://www.gov.uk/help">{{ t('Help using GOV.UK') }}</a>
     </li>
     <li>
-      <a href="{{ AppPaths.contactUsPage.uri }}">{{ t('Contact us') }}</a>
+      <a class="govuk-link" href="{{ AppPaths.contactUsPage.uri }}">{{ t('Contact us') }}</a>
     </li>
   {% if featureToggles.testingSupport %}
     <li>
-      <a href="/testing-support">Testing support</a>
+      <a class="govuk-link" href="/testing-support">Testing support</a>
     </li>
   {% endif %}
 </ul>

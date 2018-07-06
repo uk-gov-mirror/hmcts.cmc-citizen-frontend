@@ -5,20 +5,20 @@
 {% set heading = 'Confirmation' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         <div class="govuk-box-highlight">
           <h1 class="bold-large">{{ t('We’ve sent your offer to {{ claimantName }}', { claimantName: claim.claimData.claimant.name }) }}</h1>
         </div>
-        <h2 class="heading-medium">{{ t('What happens next') }}</h2>
-        <p>
+        <h2 class="govuk-heading-m">{{ t('What happens next') }}</h2>
+        <p class="govuk-body">
         {{ t('{{ claimantName }} can accept or reject. We’ll email you when they respond.', { claimantName: claim.claimData.claimant.name }) }}
       </p>
 
       {% include "includes/service_survey_link.njk" %}
 
-      <p>
-        <a href="{{ DashboardPaths.dashboardPage.uri }}" class="button">{{ t('Finished') }}</a>
+      <p class="govuk-body">
+        <a class="govuk-link" href="{{ DashboardPaths.dashboardPage.uri }}" class="button">{{ t('Finished') }}</a>
       </p>
 
       {{ supportWidget() }}

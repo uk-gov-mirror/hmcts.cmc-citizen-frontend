@@ -6,13 +6,13 @@
 {% set heading = 'Claim status' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="heading-large">
+      <h1 class="govuk-heading-l">
         <span class="heading-secondary">{{ t('Claim number:') }}</span>
         {{ claim.claimNumber }}
       </h1>
-      <h2 class="heading-medium">{{ t('Claim status') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Claim status') }}</h2>
       {{ caseHistoryForDefendantClaimDetails(claim) }}
     </div>
 

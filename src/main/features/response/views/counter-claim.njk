@@ -6,21 +6,21 @@
 {% set heading = 'How to complete and send your response' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="panel-indent">
         <div class="panel panel-border-wide">
-          <p>{{ t('Complete and email the defence and counterclaim form by <span class="bold-small">{{ responseDeadline }}', { responseDeadline: claim.responseDeadline | date  }) | safe }} </span></p>
+          <p class="govuk-body">{{ t('Complete and email the defence and counterclaim form by <span class="bold-small">{{ responseDeadline }}', { responseDeadline: claim.responseDeadline | date  }) | safe }} </span></p>
         </div>
       </div>
 
-      <p>{{ t('You’ll need to pay a court fee if you make a counterclaim.') }}</p>
+      <p class="govuk-body">{{ t('You’ll need to pay a court fee if you make a counterclaim.') }}</p>
 
       {{ feesTable('View claim fees', rows ) }}
 
       <ul class="list list-number">
         <li>
-          {{ t('Complete <a href="{{ link }}" download="download" target="_blank">defence and counterclaim form N9B</a> entering these details:',
+          {{ t('Complete <a class="govuk-link" href="{{ link }}" download="download" target="_blank">defence and counterclaim form N9B</a> entering these details:',
           { link : [asset_paths["pdf"] + '/OCON9B.pdf']}) | safe }}
           <ul class="list list-bullet">
             <li>{{ t('Claim number') }} {{ claim.claimNumber }}</li>
@@ -29,7 +29,7 @@
           </ul>
         </li>
         <li>{{ t('Save the completed form to your device.') }}</li>
-        <li>{{ t('Email the form to <a href="mailto:{{ supportEmailAddress }}?Subject={{ claimNumber }}">{{ supportEmailAddress }}</a>',
+        <li>{{ t('Email the form to <a class="govuk-link" href="mailto:{{ supportEmailAddress }}?Subject={{ claimNumber }}">{{ supportEmailAddress }}</a>',
                   { supportEmailAddress: supportEmailAddress, claimNumber: claim.claimNumber }) | safe }} </li>
       </ul>
 

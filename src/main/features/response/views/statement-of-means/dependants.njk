@@ -4,7 +4,7 @@
 {% set heading = 'Do any children live with you?' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form method="post" novalidate
         class="analytics-submit-event-trigger"
@@ -33,7 +33,7 @@
               {{ t(atLeastOfNumberShouldBeEnteredError) }}
             </p>
           {% else %}
-            <p>{{ t('Enter how many for each age group.') }}</p>
+            <p class="govuk-body">{{ t('Enter how many for each age group.') }}</p>
           {% endif %}
 
             {{ numericInput('Under 11', 'numberOfChildren[under11]', form) }}

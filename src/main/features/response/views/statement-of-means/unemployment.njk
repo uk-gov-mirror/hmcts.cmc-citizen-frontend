@@ -4,7 +4,7 @@
 {% set heading = 'Are you unemployed or retired?' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form method="post" novalidate
         class="analytics-submit-event-trigger"
@@ -27,7 +27,7 @@
           <div class="govuk-form-group panel panel-border-narrow js-hidden {% if unemploymentDetailsError %} govuk-form-group-error {% endif %}"
                id="option-{{ UnemploymentType.UNEMPLOYED.value }}" aria-hidden="false">
 
-            <p>{{ t('How long have you been unemployed?') }}</p>
+            <p class="govuk-body">{{ t('How long have you been unemployed?') }}</p>
             {{ numericInput(label = 'Years', name = 'unemploymentDetails[years]', form = form) }}
             {{ numericInput(label = 'Months', name = 'unemploymentDetails[months]', form = form) }}
           </div>

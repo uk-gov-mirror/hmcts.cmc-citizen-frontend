@@ -12,12 +12,12 @@ macro statementOfTruth(
   <p class="bold-medium">{{ t(title) }}</p>
 
   {% if statementOfTruthType == 'claim' or statementOfTruthType == 'response' %}
-    <p>{{ t('The information on this page forms your {{ type }}. You can see it on the {{ type }} form after you submit.', { type: statementOfTruthType }) }}</p>
-    <p>{{ t('When you’re satisfied that your answers are accurate, you should tick to “sign” this statement of truth on the form.') }}</p>
+    <p class="govuk-body">{{ t('The information on this page forms your {{ type }}. You can see it on the {{ type }} form after you submit.', { type: statementOfTruthType }) }}</p>
+    <p class="govuk-body">{{ t('When you’re satisfied that your answers are accurate, you should tick to “sign” this statement of truth on the form.') }}</p>
   {% endif %}
 
   {% if isQualified %}
-    <p>{{ t('You must hold a senior position in your organisation to sign the {{ typeOfStatement }}.', { typeOfStatement: typeOfStatement }) }}</p>
+    <p class="govuk-body">{{ t('You must hold a senior position in your organisation to sign the {{ typeOfStatement }}.', { typeOfStatement: typeOfStatement }) }}</p>
 
     <details class='govuk-form-group'>
       <summary>
@@ -25,14 +25,14 @@ macro statementOfTruth(
       </summary>
 
       <div class="panel">
-        <p>{{ t('A senior position could be a:') }}</p>
+        <p class="govuk-body">{{ t('A senior position could be a:') }}</p>
         <ul class="list-bullet list">
           <li>{{ t('director') }}</li>
           <li>{{ t('treasurer') }} </li>
           <li>{{ t('chief executive') }} </li>
           <li>{{ t('manager or other officer of the company or corporation') }}</li>
         </ul>
-        <p>{{ t("If your company isn't registered, a senior position could also be the:") }}</p>
+        <p class="govuk-body">{{ t("If your company isn't registered, a senior position could also be the:") }}</p>
         <ul class="list-bullet list">
           <li>{{ t('chairman') }}</li>
           <li>{{ t('president') }}</li>

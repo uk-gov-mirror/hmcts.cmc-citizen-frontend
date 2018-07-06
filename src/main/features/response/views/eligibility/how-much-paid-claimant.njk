@@ -5,7 +5,7 @@
 {% set heading = 'How much have you paid the claimant?' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <form method="post" class="analytics-submit-event-trigger"
@@ -13,7 +13,7 @@
             data-event-label-from="option" novalidate>
         {{ csrfProtection(csrf) }}
 
-        <p>{{ t('The total amount claimed is {{ totalAmountTillToday }}. This includes the claim fee and any interest.', { totalAmountTillToday: claim.totalAmountTillToday | numeral }) }}</p>
+        <p class="govuk-body">{{ t('The total amount claimed is {{ totalAmountTillToday }}. This includes the claim fee and any interest.', { totalAmountTillToday: claim.totalAmountTillToday | numeral }) }}</p>
 
         {{
         radioGroup(

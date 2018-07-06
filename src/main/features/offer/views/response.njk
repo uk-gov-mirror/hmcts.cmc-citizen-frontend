@@ -7,9 +7,9 @@
 {% set heading = 'Offer' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="heading-large">
+      <h1 class="govuk-heading-l">
         <span class="heading-secondary">{{ t('Defendant’s response') }}</span>
         {{ t('{{ defendantName }}’s offer', { defendantName: claim.claimData.defendant.name } ) }}
       </h1>
@@ -18,7 +18,7 @@
 
         {{ offerTable(offer.content, offer.completionDate) }}
 
-        <h2 class="heading-medium"> {{ t('Do you accept the offer?') }} </h2>
+        <h2 class="govuk-heading-m"> {{ t('Do you accept the offer?') }} </h2>
 
         {{
         radioGroupWithHintPanel(

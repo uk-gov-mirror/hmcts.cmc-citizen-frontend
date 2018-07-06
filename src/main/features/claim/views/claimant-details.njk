@@ -6,13 +6,13 @@
 {% set heading = 'Claimant contact details' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="heading-large">
+      <h1 class="govuk-heading-l">
         <span class="heading-secondary">{{ t('Claimant') }}</span>
         {{ claim.claimData.claimant.name }}
       </h1>
-      <p>
+      <p class="govuk-body">
         {{ claim.claimData.claimant.address.line1 }}<br />
         {% if claim.claimData.claimant.address.line2 %}
           {{ claim.claimData.claimant.address.line2 }}<br />
@@ -24,9 +24,9 @@
         {{ claim.claimData.claimant.address.postcode }}
       </p>
       {% if claim.claimData.claimant.mobilePhone %}
-        <p>{{ t('Phone: {{ phoneNumber }}', { phoneNumber: claim.claimData.claimant.mobilePhone }) }}</p>
+        <p class="govuk-body">{{ t('Phone: {{ phoneNumber }}', { phoneNumber: claim.claimData.claimant.mobilePhone }) }}</p>
       {% endif %}
-      <p>{{ t('Email: <a href="mailto:{{ claimantEmail }}">{{ claimantEmail }}</a>', { claimantEmail: claim.claimantEmail }) | safe }} </p>
+      <p class="govuk-body">{{ t('Email: <a class="govuk-link" href="mailto:{{ claimantEmail }}">{{ claimantEmail }}</a>', { claimantEmail: claim.claimantEmail }) | safe }} </p>
     </div>
 
     <div class="govuk-grid-column-one-third">

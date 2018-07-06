@@ -3,7 +3,7 @@
   display: none;
 }
 
-@include media (mobile) {
+@include govuk-media-query (mobile) {
   .mobile-hide {
     display: none;
   }

@@ -8,50 +8,50 @@
 {% set privacyPolicyUri = AppPaths.privacyPolicyPage.uri %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p>
+      <p class="govuk-body">
         {{ t('By using this service you’re agreeing to the following terms of use.'
         + 'This includes the ' + internalLink('privacy policy', privacyPolicyUri)) | safe }}
       </p>
 
-      <p>{{ t('By creating an account, you agree to accept documents from the court electronically.') }}</p>
+      <p class="govuk-body">{{ t('By creating an account, you agree to accept documents from the court electronically.') }}</p>
 
-      <h2 class="heading-medium">{{ t('Who we are') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Who we are') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('This service is managed by Her Majesty’s Courts and Tribunals Service.') }}
       </p>
-      <p>
+      <p class="govuk-body">
         {{ t('You should check these terms and conditions regularly. We may update them at any time without notice. '
         + 'If you continue to use this service after the terms and conditions have changed, '
         + 'you are deemed to have agreed to the changes.') }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Information provided by this service') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Information provided by this service') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('This service provides information to support your claim or application. '
         + 'We cannot give legal advice on individual cases.') }}
       </p>
-      <p>
+      <p class="govuk-body">
         {{ t('You should answer the questions in the service based on your circumstances, '
         + 'and seek legal advice if you need it.') }}
       </p>
 
 
-      <h2 class="heading-medium">{{ t('Sharing and storing data') }}</h2>
-      <p>
+      <h2 class="govuk-heading-m">{{ t('Sharing and storing data') }}</h2>
+      <p class="govuk-body">
         {{ t('Our ' + internalLink('privacy policy', privacyPolicyUri) + ' explains where your data is stored, and who it is shared with.') | safe }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('Our ' + internalLink('cookie policy', cookieUri) + ' explains how this service uses and stores cookies.') | safe }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Laws applying to this service') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Laws applying to this service') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('Your use of this service and any dispute arising from its use will be governed by and construed in '
         + 'accordance with the laws of England and Wales, including but not limited to the:') }}
       </p>
@@ -64,16 +64,16 @@
         <li>{{ t('Mental Capacity Act 2005') }}</li>
       </ul>
 
-      <h2 class="heading-medium">{{ t('How to use this service responsibly') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('How to use this service responsibly') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('There are risks in using a shared computer (for example, in a library) to access this service. '
         + 'It’s your responsibility to be aware of these risks and to avoid using any computer which may leave '
         + 'your personal information accessible to others. You’re responsible if you choose to leave a computer '
         + 'unprotected while using this service.') }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('You should take your own precautions to ensure that the way you access this service does not '
         + 'expose you to the risk of:') }}
       </p>
@@ -84,7 +84,7 @@
         <li>{{ t('other forms of interference which may damage your computer system') }}</li>
       </ul>
 
-      <p>
+      <p class="govuk-body">
         {{ t('You must not misuse this service by knowingly introducing viruses, trojans, worms, '
         + 'logic bombs or other material which is malicious or technologically harmful. '
         + 'You must not attempt to gain unauthorised access to this service, the system on which it is stored, '
@@ -92,14 +92,14 @@
         + 'denial-of-service attack or a distributed denial-of-service attack.') }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Entering personally sensitive information') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Entering personally sensitive information') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('This online service contains several free-text fields in which you may choose to enter '
         + 'information which is personally sensitive.') }}
       </p>
 
-      <p>{{ t('If you enter information about your:') }}</p>
+      <p class="govuk-body">{{ t('If you enter information about your:') }}</p>
 
 
       <ul class="list list-bullet">
@@ -113,16 +113,16 @@
         <li>{{ t('health data') }}</li>
       </ul>
 
-      <p>{{ t('You give us your consent to processing this information for the purpose of dealing with your application.') }}</p>
+      <p class="govuk-body">{{ t('You give us your consent to processing this information for the purpose of dealing with your application.') }}</p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('For more information about how we collect and store your personal data, see the '
         + internalLink('privacy policy.', privacyPolicyUri)) | safe }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Disclaimer') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Disclaimer') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('While we make every effort to keep GOV.UK up to date, we don’t provide any guarantees, '
         + 'conditions or warranties that the information will be:') }}
       </p>
@@ -135,12 +135,12 @@
         <li>{{ t('free from bugs or viruses') }}</li>
       </ul>
 
-      <p>
+      <p class="govuk-body">
         {{ t('We don’t publish advice on GOV.UK. You should get professional or specialist advice before doing anything '
         + 'on the basis of the content.') }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('We’re not liable for any loss or damage that may come from using GOV.UK. This includes:') }}
       </p>
 
@@ -152,12 +152,12 @@
         <li>{{ t('the inability to use GOV.UK and any websites that are linked to or from it') }}</li>
       </ul>
 
-      <p>
+      <p class="govuk-body">
         {{ t('This applies if the loss or damage was foreseeable, arose in the normal course of things or '
         + 'you advised us that it might happen.') }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('This includes (but isn’t limited to) the loss of your:') }}
       </p>
 
@@ -175,7 +175,7 @@
         <li>{{ t('wasted management or office time') }}</li>
       </ul>
 
-        <p>
+        <p class="govuk-body">
           {{ t('We may still be liable for:') }}
         </p>
 

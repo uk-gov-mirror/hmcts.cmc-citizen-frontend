@@ -1,11 +1,12 @@
 {% extends "layout.njk" %}
-{% from "form.njk" import csrfProtection, errorSummary, radioGroup, saveAndContinueButton %}
+{% from "form.njk" import csrfProtection, errorSummary, saveAndContinueButton %}
+{% from "radios/macro.njk" import govukRadios %}
 
 {% set heading = 'Do you believe the person you’re claiming against is 18 or over?' %}
 
 {% block content %}
 
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {% set name = 'defendantAge' %}
 
@@ -14,20 +15,33 @@
             data-event-label-from="{{ name }}">
         {{ csrfProtection(csrf) }}
 
-        {{
-          radioGroup(
-            label = heading,
-            name = name,
-            options = [
-              {'label': 'Yes', value: DefendantAgeOption.YES.option, checked: (form.valueFor(name) === DefendantAgeOption.YES)},
-              {'label': 'No', value: DefendantAgeOption.NO.option, checked: (form.valueFor(name) === DefendantAgeOption.NO)},
-              {'label': 'I’m claiming against a company or organisation', value: DefendantAgeOption.COMPANY_OR_ORGANISATION.option,
-                          checked: (form.valueFor(name) === DefendantAgeOption.COMPANY_OR_ORGANISATION)}
-            ],
-            form = form,
-            labelForScreenReadersOnly = true
-          )
-        }}
+        {{ govukRadios({
+          name: name,
+          fieldset: {
+            legend: {
+              text: t(heading),
+              isPageHeading: true,
+              classes: 'govuk-fieldset__legend--l'
+            }
+          },
+          items: [
+            {
+              value: DefendantAgeOption.YES.option,
+              text: t('Yes'),
+              checked: (form.valueFor(name) === DefendantAgeOption.YES.option)
+            },
+            {
+              value: DefendantAgeOption.NO.option,
+              text: t('No'),
+              checked: (form.valueFor(name) === DefendantAgeOption.NO.option)
+            },
+            {
+              value: DefendantAgeOption.COMPANY_OR_ORGANISATION.option,
+              text: t('I’m claiming against a company or organisation'),
+              checked: (form.valueFor(name) === DefendantAgeOption.COMPANY_OR_ORGANISATION.option)
+            }
+          ]
+        }) }}
 
         {{ saveAndContinueButton() }}
 

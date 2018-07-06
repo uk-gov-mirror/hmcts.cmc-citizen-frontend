@@ -6,7 +6,7 @@
 
 {% macro noResponseForClaimantClaimDetails(claim) %}
   <h2 class="heading-small">{{ t('Your claim has been sent') }}</h2>
-  <p>
+  <p class="govuk-body">
     {{ t('{{ defendantName }} has until {{ responseDeadline }} to respond. They can request an extra 14 days if they need it.',
       { defendantName: claim.claimData.defendant.name, responseDeadline: claim.responseDeadline | date }) }}
   </p>
@@ -21,15 +21,15 @@
 
 {% macro noResponseForDefendantClaimDetails(claim) %}
   <h2 class="heading-small">{{ t('You haven’t responded to this claim') }}</h2>
-  <p>
+  <p class="govuk-body">
     {{ t('You need to respond before 4pm on {{ responseDeadline }} {{ remainingTime }}.',
       { responseDeadline: claim.responseDeadline | date, remainingTime: timeRemaining(claim.remainingDays, isAfter4pm()) }) | safe }}
   </p>
-  <p>
+  <p class="govuk-body">
     {{ _respondToClaimLink(claim) }}
   </p>
 {% endmacro %}
 
 {% macro _respondToClaimLink(claim) %}
-  <a href="{{ ResponsePaths.taskListPage.evaluateUri({ externalId: claim.externalId }) }}">{{ t('Respond to claim') }}</a>
+  <a class="govuk-link" href="{{ ResponsePaths.taskListPage.evaluateUri({ externalId: claim.externalId }) }}">{{ t('Respond to claim') }}</a>
 {% endmacro %}

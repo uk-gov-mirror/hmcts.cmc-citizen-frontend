@@ -1,5 +1,6 @@
 {% extends "layout.njk" %}
 {% from "externalLink.njk" import externalLink %}
+{% from "button/macro.njk" import govukButton %}
 
 {% if registeredUser %}
   {% set heading = 'Find out if you can make a claim using this service' %}
@@ -8,27 +9,29 @@
 {% endif %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ t(heading) }}</h1>
+
       {% if registeredUser %}
-        <p>
+        <p class="govuk-body">
           {{ t('We’ll ask you some questions to check you can use this service. We can’t say if your claim will be successful or not.') }}
         </p>
-
-        <a href="{{ EligibilityPaths.claimValuePage.uri }}" class="button">{{ t('Continue') }}</a>
       {% else %}
 
-        <p>{{ t('We’re building a new service which is currently in beta. This means we’re testing different designs '
+        <p class="govuk-body">{{ t('We’re building a new service which is currently in beta. This means we’re testing different designs '
           + 'and making changes based on feedback from users.') }}</p>
 
-        <p>{{ t('We’ll ask you some questions to check you can use the new service.') }}</p>
+        <p class="govuk-body">{{ t('We’ll ask you some questions to check you can use the new service.') }}</p>
 
-        <p>{{ t('You can still <a href="{{ uri }}">use Money Claim Online (MCOL)</a> '
+        <p class="govuk-body">{{ t('You can still <a class="govuk-link" href="{{ uri }}">use Money Claim Online (MCOL)</a> '
           + 'if you prefer while we’re testing the new service.',
             { uri: EligibilityPaths.mcolEligibilityPage.uri }) | safe }}</p>
-
-        <a href="{{ EligibilityPaths.claimValuePage.uri }}" class="button">{{ t('Continue') }}</a>
       {% endif %}
+      {{ govukButton({
+        text: t('Continue'),
+        href: EligibilityPaths.claimValuePage.uri
+      }) }}
     </div>
   </div>
 {% endblock %}

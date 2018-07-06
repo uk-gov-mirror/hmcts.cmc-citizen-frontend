@@ -4,9 +4,9 @@
 {% set heading = 'The defendant’s response' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p>{{ t('The defendant {{ name }} has rejected your claim.', name = response.defendant.name) }}</p>
+      <p class="govuk-body">{{ t('The defendant {{ name }} has rejected your claim.', name = response.defendant.name) }}</p>
       <p class="bold-medium">{{ t('Their defence') }}</p>
 
       {{ expandableSection(label = 'Why they disagree with the claim', content = response.defence, id = 'summaryContent') }}

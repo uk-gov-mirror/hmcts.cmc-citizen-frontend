@@ -5,7 +5,7 @@
 {% set heading = 'Confirmation' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-box-highlight">
         <h1 class="bold-large">{{ t('You’ve settled out of court') }}</h1>
@@ -13,19 +13,19 @@
           <span class="bold">{{ claim.settlementReachedAt | date }}</span>
         </div>
         <div class="receipt-download-container">
-          <a href="{{ OfferPaths.agreementReceiver.evaluateUri({ externalId: claim.externalId }) }}">{{ t('Download agreement as a PDF') }}</a>
+          <a class="govuk-link" href="{{ OfferPaths.agreementReceiver.evaluateUri({ externalId: claim.externalId }) }}">{{ t('Download agreement as a PDF') }}</a>
         </div>
       </div>
 
-      <h2 class="heading-medium">{{ t('What happens next') }}</h2>
-      <p>
+      <h2 class="govuk-heading-m">{{ t('What happens next') }}</h2>
+      <p class="govuk-body">
         {{ t('You’ve both signed a legal agreement which replaces the claim.') }}
       </p>
 
       {% include "includes/service_survey_link.njk" %}
 
-      <p>
-        <a href="{{ DashboardPaths.dashboardPage.uri }}" class="button">{{ t('Finished') }}</a>
+      <p class="govuk-body">
+        <a class="govuk-link" href="{{ DashboardPaths.dashboardPage.uri }}" class="button">{{ t('Finished') }}</a>
       </p>
 
       {{ supportWidget() }}

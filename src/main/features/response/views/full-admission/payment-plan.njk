@@ -11,15 +11,15 @@
 {% block content %}
   <div class="govuk-grid-column-two-thirds">
 
-    <p>{{ t('The total amount claimed is {{ totalAmount }}. This includes the claim fee and any interest.', { totalAmount: totalAmount | numeral }) }} </p>
+    <p class="govuk-body">{{ t('The total amount claimed is {{ totalAmount }}. This includes the claim fee and any interest.', { totalAmount: totalAmount | numeral }) }} </p>
 
     <form method="post" novalidate class="payment-plan-calculation">
       {{ csrfProtection(csrf) }}
 
       <h2 class="heading-small">Your finances</h2>
-      <p>{{ t('Your total monthly income is {{ monthlyIncome }}',
+      <p class="govuk-body">{{ t('Your total monthly income is {{ monthlyIncome }}',
           { monthlyIncome: monthlyIncome | numeral }) }}</p>
-      <p>{{ t('Your total monthly expenses is {{ monthlyExpenses }}',
+      <p class="govuk-body">{{ t('Your total monthly expenses is {{ monthlyExpenses }}',
           { monthlyExpenses: monthlyExpenses | numeral }) }}</p>
 
       <input type="hidden" name="totalAmount" value="{{ totalAmount }}"/>

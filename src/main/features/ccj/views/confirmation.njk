@@ -7,20 +7,20 @@
 
 {% block content %}
 
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <div class="govuk-box-highlight">
         <h1 class="bold-large">{{ t('County Court Judgment requested') }}</h1>
       </div>
 
-      <h2 class="heading-medium">{{ t('What happens next') }}</h2>
-      <p>{{ t('You requested a County Court Judgment on {{ ccjRequestedAt }}. We’ll contact you within 14 days to tell you whether the judgment has been entered.',
+      <h2 class="govuk-heading-m">{{ t('What happens next') }}</h2>
+      <p class="govuk-body">{{ t('You requested a County Court Judgment on {{ ccjRequestedAt }}. We’ll contact you within 14 days to tell you whether the judgment has been entered.',
         { ccjRequestedAt: ccjRequestedAt | date }) }}
       </p>
-      <p>{{ t('{{ defendantName }} can no longer respond to the claim using this service - they may have responded by post.', { defendantName: defendantName }) }}</p>
+      <p class="govuk-body">{{ t('{{ defendantName }} can no longer respond to the claim using this service - they may have responded by post.', { defendantName: defendantName }) }}</p>
 
-      <p>{{ t('View your claim status on <a href="{{ url }}">your money claims account</a>.', { url: '/dashboard' }) | safe }}</p>
+      <p class="govuk-body">{{ t('View your claim status on <a class="govuk-link" href="{{ url }}">your money claims account</a>.', { url: '/dashboard' }) | safe }}</p>
 
       {{ supportWidget() }}
 

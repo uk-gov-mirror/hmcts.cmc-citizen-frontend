@@ -4,7 +4,7 @@
 {% set heading = t('Briefly explain your claim') %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
@@ -17,7 +17,7 @@
               {{ t('Tell us why you believe the defendant owes you money.') }}
             </p>
 
-            <p>{{ t('Don’t give us a detailed timeline - we’ll ask for that later.') }}</p>
+            <p class="govuk-body">{{ t('Don’t give us a detailed timeline - we’ll ask for that later.') }}</p>
 
             {% if error %}
               <span class="error-message">{{ t(error) }}</span>

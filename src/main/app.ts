@@ -38,8 +38,10 @@ new Nunjucks(developmentMode, i18next)
 new Helmet(config.get<HelmetConfig>('security'), developmentMode)
   .enableFor(app)
 
+const govukBasePath = path.join(__dirname, '..', '..', 'node_modules', 'govuk-frontend')
+const govukAssets = path.join(govukBasePath, 'assets')
 app.enable('trust proxy')
-app.use(favicon(path.join(__dirname, '/public/img/lib/favicon.ico')))
+app.use(favicon(path.join(govukAssets, 'images', 'favicon.ico')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: true
@@ -47,6 +49,8 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser())
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use('/assets', express.static(govukAssets))
+app.use('/assets/all.js', express.static(path.join(govukBasePath, 'all.js')))
 
 if (env !== 'mocha') {
   new CsrfProtection().enableFor(app)

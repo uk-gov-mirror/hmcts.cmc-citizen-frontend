@@ -3,16 +3,16 @@
 {% set heading = 'Testing support' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div>
-        <a href="{{ paths.updateResponseDeadlinePage.uri }}">{{ t('Update response deadline') }}</a>
+        <a class="govuk-link" href="{{ paths.updateResponseDeadlinePage.uri }}">{{ t('Update response deadline') }}</a>
       </div>
       <div>
-        <a href="{{ paths.createClaimDraftPage.uri }}">{{ t('Create Claim Draft') }}</a>
+        <a class="govuk-link" href="{{ paths.createClaimDraftPage.uri }}">{{ t('Create Claim Draft') }}</a>
       </div>
       <div>
-        <a href="{{ paths.deleteDraftsPage.uri }}">{{ t('Delete Drafts') }}</a>
+        <a class="govuk-link" href="{{ paths.deleteDraftsPage.uri }}">{{ t('Delete Drafts') }}</a>
       </div>
     </div>
   </div>

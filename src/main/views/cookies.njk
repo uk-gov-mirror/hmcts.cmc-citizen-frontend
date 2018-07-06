@@ -9,16 +9,16 @@
 {% set optOutOfAnalyticsUri = 'https://tools.google.com/dlpage/gaoptout' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <p>
+      <p class="govuk-body">
         {{ t('A cookie is a small piece of data that’s stored on your computer, '
         + 'tablet, or phone when you visit a website. '
         + 'Most websites need cookies to work properly.') }}
       </p>
 
-      <p> {{ t('How cookies are used in this service:') }}</p>
+      <p class="govuk-body"> {{ t('How cookies are used in this service:') }}</p>
 
       <ul class="list list-bullet">
         <li>{{ t('measure how you use the service so it can be improved') }}</li>
@@ -26,18 +26,18 @@
         <li>{{ t('temporarily store the answers you give') }}</li>
       </ul>
 
-      <p>
+      <p class="govuk-body">
         {{ t('Find out more about ' + externalLink( 'how to manage cookies', cookieResourseUri )) | safe }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Cookies used to measure website usage') }}</h2>
-      <p>
+      <h2 class="govuk-heading-m">{{ t('Cookies used to measure website usage') }}</h2>
+      <p class="govuk-body">
         {{ t('We use Google Analytics software to collect information about how you use this service. '
         + 'We do this to help make sure the service is meeting the needs of its users '
         + 'and to help us make improvements, for example improving site search.') }}
       </p>
 
-      <p> {{ t('Google Analytics stores information about:') }}</p>
+      <p class="govuk-body"> {{ t('Google Analytics stores information about:') }}</p>
 
       <ul class="list list-bullet">
         <li>{{ t('the pages you visit') }}</li>
@@ -46,17 +46,17 @@
         <li>{{ t('what you click on while you’re visiting the service') }}</li>
       </ul>
 
-      <p>
+      <p class="govuk-body">
         {{ t('We allow Google to use or share our analytics data. You can find out more '
         + 'about how Google use this information in their ' + externalLink('Privacy Policy.', googlePrivacyPolicyUri)) | safe }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('You can ' + externalLink('opt out of Google Analytics', optOutOfAnalyticsUri)
         + 'if you do not want Google to have access to your information.') | safe }}
       </p>
 
-      <p>{{ t('Google Analytics sets the following cookies:') }}</p>
+      <p class="govuk-body">{{ t('Google Analytics sets the following cookies:') }}</p>
 
       <table class="govuk-form-group">
         <thead>
@@ -91,9 +91,9 @@
         </tbody>
       </table>
 
-      <h2 class="heading-medium">{{ t('Cookies used to turn our introductory message off') }} </h2>
+      <h2 class="govuk-heading-m">{{ t('Cookies used to turn our introductory message off') }} </h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('You may see a welcome message when you first visit the service. '
         +'We’ll store a cookie so that your computer knows not to show this message again.') }}
       </p>
@@ -118,10 +118,10 @@
       </table>
 
       <h2
-        class="heading-medium">{{ t('Cookies used to store the answers you’ve given during your visit (known as a ‘session’)') }}
+        class="govuk-heading-m">{{ t('Cookies used to store the answers you’ve given during your visit (known as a ‘session’)') }}
       </h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('Session cookies are stored on your computer as you travel through a website, '
         + 'and let the website know what you’ve seen and done so far. '
         + 'These are temporary cookies and are automatically deleted a short while after you leave the website.') }}
@@ -153,8 +153,8 @@
         </tbody>
       </table>
 
-      <h2 class="heading-medium">{{ t('Cookies used to identify you when you come back to the service') }}</h2>
-      <p>{{ t('We use authentication cookies to identify you when you return to the service.') }}</p>
+      <h2 class="govuk-heading-m">{{ t('Cookies used to identify you when you come back to the service') }}</h2>
+      <p class="govuk-body">{{ t('We use authentication cookies to identify you when you return to the service.') }}</p>
 
       <table class="govuk-form-group">
         <thead>
@@ -175,8 +175,8 @@
         </tbody>
       </table>
 
-      <h2 class="heading-medium">{{ t('Cookies used to make the service more secure') }}</h2>
-      <p>
+      <h2 class="govuk-heading-m">{{ t('Cookies used to make the service more secure') }}</h2>
+      <p class="govuk-body">
         {{ t('We set cookies which prevent attackers from modifying the contents of the other cookies we set. '
         + 'This makes the service more secure and protects your personal information. ') }}
       </p>

@@ -42,7 +42,7 @@
 
   <div id="skiplink-container">
     <div>
-      <a href="#content" class="skiplink">{{ skip_link_message|default('Skip to main content') }}</a>
+      <a class="govuk-link" href="#content" class="skiplink">{{ skip_link_message|default('Skip to main content') }}</a>
     </div>
   </div>
 
@@ -54,7 +54,7 @@
     <div class="header-wrapper">
       <div class="header-global">
         <div class="header-logo">
-          <a href="{{ homepage_url|default('https://www.gov.uk') }}" title="{{ logo_link_title|default('Go to the GOV.UK homepage') }}" id="logo" class="content">
+          <a class="govuk-link" href="{{ homepage_url|default('https://www.gov.uk') }}" title="{{ logo_link_title|default('Go to the GOV.UK homepage') }}" id="logo" class="content">
             <img src="{{ asset_paths['images_vendor'] }}/gov.uk_logotype_crown_invert_trans.png?{{ govuk_template_version }}" width="36" height="32" alt=""> {{ global_header_text|default('GOV.UK') }}
           </a>
         </div>
@@ -76,7 +76,7 @@
     {% endif %}
 
     {% if heading and headingVisible %}
-      <div class="grid-row">
+      <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
           <h1 class="heading-{{ headingSize | default('large') }}">
             {{ t(heading) }}
@@ -103,15 +103,15 @@
           {% block footer_support_links %}{% endblock %}
 
           <div class="open-government-licence">
-            <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
+            <p class="logo"><a class="govuk-link" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
 
-            {% block licence_message %}<p>{{ t('All content is available under the <a href="{{ link }}" rel="license">Open Government Licence v3.0</a>, except where otherwise stated', { link: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/' }) | safe }}</p>{% endblock %}
+            {% block licence_message %}<p class="govuk-body">{{ t('All content is available under the <a class="govuk-link" href="{{ link }}" rel="license">Open Government Licence v3.0</a>, except where otherwise stated', { link: 'https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/' }) | safe }}</p>{% endblock %}
 
           </div>
         </div>
 
         <div class="copyright">
-          <a href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">{{ crown_copyright_message|default('&copy; ' + t('Crown copyright'))|safe }}</a>
+          <a class="govuk-link" href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">{{ crown_copyright_message|default('&copy; ' + t('Crown copyright'))|safe }}</a>
         </div>
       </div>
     </div>

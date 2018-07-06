@@ -3,17 +3,17 @@
 {% from "support.njk" import supportWidget %}
 {% set heading = 'Make an offer to settle out of court' %}
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <p>{{ t('You may avoid getting a County Court Judgment (CCJ) if you settle out of court.') }}</p>
-        <p>
+        <p class="govuk-body">{{ t('You may avoid getting a County Court Judgment (CCJ) if you settle out of court.') }}</p>
+        <p class="govuk-body">
         {{ t('If {{ claimantName }} accepts your offer you’ll both sign a legal agreement.', { claimantName: claim.claimData.claimant.name }) }}
       </p>
-      <p>
+      <p class="govuk-body">
         {{ t('If they reject your offer the details can’t be mentioned in court.') }}
       </p>
 
-      {{ t('<a href="{{ url }}" class="button">Continue</a>', { url: OfferPaths.offerPage.evaluateUri({ externalId: claim.externalId }) }) | safe }}
+      {{ t('<a class="govuk-link" href="{{ url }}" class="button">Continue</a>', { url: OfferPaths.offerPage.evaluateUri({ externalId: claim.externalId }) }) | safe }}
     </div>
   </div>
 {% endblock %}

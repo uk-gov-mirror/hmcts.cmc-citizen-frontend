@@ -12,39 +12,39 @@
 {% set complaintsProcedureUri = 'https://www.gov.uk/government/organisations/hm-courts-and-tribunals-service/about/complaints-procedure' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p>
+      <p class="govuk-body">
         {{ t('This privacy policy explains why we collect your personal data and what we do with it. '
         + 'It also explains your rights and how to enforce them.') }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Who manages this service') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Who manages this service') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('This service is managed by HM Courts and Tribunals Service (HMCTS), '
         + 'which is an executive agency of the Ministry of Justice (MoJ).') }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('The MoJ is known as the data controller for data protection purposes. The '
         + externalLink('MoJ personal information charter', MOJInfoCharterUri )
         + 'explains how the MoJ processes personal data.') | safe }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('As part of the MoJ, HMCTS is responsible for deciding how '
         + 'your personal data is used and for protecting the personal data you provide.') }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('More information about how to use the service is in the '
         + internalLink('terms and conditions', termsAndConditionsUri)) | safe }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Why we collect your personal data') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Why we collect your personal data') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('We collect your personal data to:') }}
       </p>
 
@@ -55,14 +55,14 @@
         </li>
       </ul>
 
-      <p>
+      <p class="govuk-body">
         {{ t('Our staff use your personal data to process your claim or application. '
         + 'They work in the UK and your data is stored in the UK.') }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Types of personal data we collect') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Types of personal data we collect') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('The personal data we collect includes:') }}
       </p>
 
@@ -73,19 +73,19 @@
         </li>
       </ul>
 
-      <h2 class="heading-medium">{{ t('Using your data') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Using your data') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('As part of your claim you’ll be asked to use your email address to set up an account. '
         + 'You will be able to use this email and password to sign into other HMCTS services.') }}
       </p>
 
-      <p> {{ t('We may ask for your permission to use your email address to send you emails using GOV.UK Notify. '
+      <p class="govuk-body"> {{ t('We may ask for your permission to use your email address to send you emails using GOV.UK Notify. '
         + 'This system processes emails only within the European Economic Area until the point where emails are '
         + 'handed over to the email provider you use.') }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('We '+ internalLink('use cookies', cookieUri)
         + 'to collect data that tells us about how you’re using this service, including:') | safe }}
       </p>
@@ -97,35 +97,35 @@
         <li>{{ t('the web browser you use') }}</li>
       </ul>
 
-      <h2 class="heading-medium">{{ t('Sharing your data') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Sharing your data') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('While processing your claim or application, another government department, agency or organisation might be involved and we may share your data with them.') }}
       </p>
 
-      <p>{{ t('If you contact us and ask for help with the service you are using, '
+      <p class="govuk-body">{{ t('If you contact us and ask for help with the service you are using, '
         + 'your personal data may be shared with the Good Things Foundation. '
         + 'This is a company who we have partnered with to offer face to face support.') }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('In some circumstances we may share your data for example, to prevent or detect crime, or to produce anonymised statistics.') }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('We use Google Analytics to collect data about how a website is used. This anonymous data is shared with Google.'
         + 'Find out about this in our ' + internalLink('terms and conditions.', termsAndConditionsUri)) | safe }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Storing and sharing your data internationally') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Storing and sharing your data internationally') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('Sometimes we need to send your personal information outside of the UK. When we do this we comply with data protection law.') }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Your rights') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Your rights') }}</h2>
 
-      <p>{{ t('You can ask:') }}</p>
+      <p class="govuk-body">{{ t('You can ask:') }}</p>
 
       <ul class="list list-bullet">
         <li>{{ t('to see the personal data that we hold on you') }}</li>
@@ -134,14 +134,14 @@
         <li>{{ t('that access to the personal data is restricted (for example, you can ask to have your data stored for longer and not automatically deleted)') }}</li>
       </ul>
 
-      <p>{{ t('If you want to see the personal data that we hold on you, you can:')}}</p>
+      <p class="govuk-body">{{ t('If you want to see the personal data that we hold on you, you can:')}}</p>
 
       <ul class="list list-bullet">
         <li>{{ t('complete a form to ' + externalLink('make a subject access request', dataRequestUri) + ' - your request goes to the MOJ as data controller') | safe }}</li>
         <li>{{ t('write to us: Disclosure Team, Post point 10.38, 102 Petty France, London, SW1H 9AJ') }}</li>
       </ul>
 
-      <p>{{ t('You can ask for more information about:') }}</p>
+      <p class="govuk-body">{{ t('You can ask for more information about:') }}</p>
 
       <ul class="list list-bullet">
         <li>{{ t('agreements we have on sharing information with other organisations') }}</li>
@@ -150,7 +150,7 @@
         <li>{{ t('how we check that the information we hold is accurate and up-to-date') }}</li>
       </ul>
 
-      <p>{{ t('You can contact the MoJ data protection officer by:') }}</p>
+      <p class="govuk-body">{{ t('You can contact the MoJ data protection officer by:') }}</p>
 
       <ul class="list list-bullet">
         <li>{{ t('writing to us: Post point 10.38, 102 Petty France, London, SW1H 9AJ') }}</li>
@@ -158,30 +158,30 @@
       </ul>
 
 
-      <h2 class="heading-medium">{{ t('How to complain') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('How to complain') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('See our ' + internalLink('complaints procedure,', complaintsProcedureUri)
         + ' if you want to complain about how we’ve handled your personal data.') | safe }}
       </p>
 
-      <p>
+      <p class="govuk-body">
       {{ t('Write to: Post point 10.38, 102 Petty France, London, SW1H 9AJ')}}
       </p>
 
-      <p>
+      <p class="govuk-body">
       {{ t('Email: data.compliance@justice.gov.uk')}}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('You can also complain to the ' + externalLink('Information Commissioner’s Office', informationCommissionerOfficeUri)
         + 'if you’re not satisfied with our response or believe we are not processing your personal data lawfully.') | safe }}
       </p>
 
-      <h2 class="heading-large">{{ t('Using the money claims service') }}</h2>
-      <h2 class="heading-medium">{{ t('The personal data we need') }}</h2>
+      <h2 class="govuk-heading-l">{{ t('Using the money claims service') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('The personal data we need') }}</h2>
 
-      <p>{{ t('If you are using the money claims service we may ask you for:') }}</p>
+      <p class="govuk-body">{{ t('If you are using the money claims service we may ask you for:') }}</p>
 
       <ul class="list list-bullet">
         <li>{{ t('your name') }}</li>
@@ -197,28 +197,28 @@
         <li>{{ t('a list of any evidence you have to support your claim') }}</li>
       </ul>
 
-      <p>
+      <p class="govuk-body">
         {{ t('If you are responding to a money claim we ask you to check the personal information about you that was '
         + 'provided by the claimant which includes your name, your address and contact details.') }}
       </p>
 
-      <p> {{ t('We may ask you to provide:') }}</p>
+      <p class="govuk-body"> {{ t('We may ask you to provide:') }}</p>
       <li>{{ t('your date of birth') }}</li>
       <li>{{ t('your business or organisation if you are acting on their behalf') }}</li>
       <li>{{ t('your response to the claim made against you') }}</li>
       <li>{{ t('the timeline of events leading to the dispute') }}</li>
       <li>{{ t('a list of any evidence you have to support your claim') }}</li>
 
-      <h2 class="heading-medium">{{ t('Storing your data') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Storing your data') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('When you use this service you’ll be asked to use your email address to set up an account. '
         + 'You can use this email and password to sign into other HMCTS services.') }}
       </p>
 
       <h2 class="heading-small">{{ t('Before you submit your information') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('The information you enter in the money claims service is saved until you decide to submit it. '
         + 'This allows you to save what you are doing and continue later. '
         + 'Saved information that you do not submit will be deleted after 90 days.') }}
@@ -226,25 +226,25 @@
 
       <h2 class="heading-small">{{ t('After you submit your information') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('The information you submit for a money claim will be deleted 2 years after the court '
         + 'makes a decision on the outcome of your claim (this is called a judgment).') }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('If the court doesn’t make a decision about your claim '
         + '(for example, you settle the claim out of court and a judgment is no longer required) '
         + 'then the information you provide will be deleted 3 years after the last update made to the claim.') }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Sharing your data') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Sharing your data') }}</h2>
 
-      <p>
+      <p class="govuk-body">
         {{ t('The information you submit will be shared with everyone who is named on the claim. '
         + 'This excludes any payment details that you use to pay court fees.') }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('If a judgment is made on a case some information is shared with Registry Trust Limited who provide financial information about court judgments to banks and credit agencies.') }}
       </p>
 

@@ -2,9 +2,9 @@
 {% set claimantDetailsPageURI = ClaimPaths.claimantDetailsPage.evaluateUri({ externalId: claim.externalId }) %}
 
 {% if claim.response.paymentOption === domain.PaymentOption.IMMEDIATELY %}
-  <p>{{ t('We’ve emailed {{ claimantName }} to tell them you’ll pay immediately.', { claimantName: claimantName }) }}</p>
+  <p class="govuk-body">{{ t('We’ve emailed {{ claimantName }} to tell them you’ll pay immediately.', { claimantName: claimantName }) }}</p>
 
-  <p>{{ t('You need to make sure that:') }}</p>
+  <p class="govuk-body">{{ t('You need to make sure that:') }}</p>
 
   <ul class="list list-bullet">
     <li>{{ t('they get the money before 4pm on {{ paymentDate }} - they can request a County Court Judgment against you if not', { paymentDate: claim.response.paymentDate | date }) }}</li>
@@ -12,14 +12,14 @@
     <li>{{ t('you get a receipt for any payments') }}</li>
   </ul>
 
-  <p>{{ t('<a href="{{ link }}">Contact {{ claimantName }}</a> if you need their payment details.', { claimantName: claimantName, link: claimantDetailsPageURI }) | safe }}</p>
+  <p class="govuk-body">{{ t('<a class="govuk-link" href="{{ link }}">Contact {{ claimantName }}</a> if you need their payment details.', { claimantName: claimantName, link: claimantDetailsPageURI }) | safe }}</p>
 {% endif %}
 
 {% if claim.response.paymentOption === domain.PaymentOption.FULL_BY_SPECIFIED_DATE %}
-  <p>{{ t('We’ve emailed {{ claimantName }} your offer to pay by {{ paymentDate }} and your explanation of why you can’t pay before then.',
+  <p class="govuk-body">{{ t('We’ve emailed {{ claimantName }} your offer to pay by {{ paymentDate }} and your explanation of why you can’t pay before then.',
       { claimantName: claimantName, paymentDate: claim.response.paymentDate | date }) }}</p>
 {% endif %}
 
 {% if claim.response.paymentOption === domain.PaymentOption.INSTALMENTS %}
-  <p>{{ t('We’ve emailed {{ claimantName }} to tell them you’ve suggested paying by instalments.', { claimantName: claimantName }) }}</p>
+  <p class="govuk-body">{{ t('We’ve emailed {{ claimantName }} to tell them you’ve suggested paying by instalments.', { claimantName: claimantName }) }}</p>
 {% endif %}

@@ -1,9 +1,9 @@
 .govuk-related-items {
-  border-top: 10px solid $govuk-blue;
-  margin-top: $gutter;
+  border-top: 10px solid govuk-colour('blue');
+  margin-top: $govuk-gutter;
   padding-top: 5px;
 
-  .heading-medium {
+  .govuk-heading-m {
     margin-bottom: .5em;
     margin-top: .3em;
   }

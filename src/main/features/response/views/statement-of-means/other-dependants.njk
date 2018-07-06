@@ -4,7 +4,7 @@
 {% set heading = 'Do you support anyone else financially?' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form method="post" novalidate
         class="analytics-submit-event-trigger"
@@ -33,7 +33,7 @@
               {{ t(atLeastOfNumberShouldBeEnteredError) }}
             </p>
           {% else %}
-            <p>{{ t('Enter number for each age group.') }}</p>
+            <p class="govuk-body">{{ t('Enter number for each age group.') }}</p>
           {% endif %}
 
             {{ numericInput(label = 'Number of people', name = 'numberOfPeople[value]', form = form) }}

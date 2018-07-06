@@ -5,7 +5,7 @@
 {% set heading = 'Add your timeline of events' %}
 
 {% block content %}
-<div class="grid-row">
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
     <div class="description-block">
@@ -33,7 +33,7 @@
     <form method="post" novalidate>
       {{ csrfProtection(csrf) }}
       <h2 class="heading-small">{{ t('Add your timeline of events (optional)') }}</h2>
-      <p>{{ t('Include dates if you know them.') }}</p>
+      <p class="govuk-body">{{ t('Include dates if you know them.') }}</p>
 
       {{ timelineFragment(form) }}
 

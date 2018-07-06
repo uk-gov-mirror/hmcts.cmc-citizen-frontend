@@ -6,18 +6,18 @@
 {% set claimantFullName = claim.claimData.claimant.name %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
-        <p>{{ t('The amount being claimed is') }} {{ amount | numeral }}</p>
+        <p class="govuk-body">{{ t('The amount being claimed is') }} {{ amount | numeral }}</p>
 
         {{ poundInput(label = 'How much money do you believe you owe?', name = 'amount', form = form, bold = true) }}
 
         {{ textArea(label = t('Explain why this is what you owe, rather than the full amount.'), name = 'text', form = form) }}
 
         <div class="panel panel-border-wide">
-          <p>
+          <p class="govuk-body">
             {{ t('Your response will be sent to the claimant {{ claimantFullName }}.', { claimantFullName: claimantFullName }) }}
             {{ t('A judge will not consider your response unless your case goes to a hearing.') }}
           </p>

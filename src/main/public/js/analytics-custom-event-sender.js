@@ -65,7 +65,7 @@ $(function () {
   }
 
   // Send a google analytics event when an element that has the 'analytics-click-event-trigger' class is clicked.
-  // Example: <a href="http://somelink" class="analytics-click-event-trigger" data-event-label="Your GA label">Some text</a>
+  // Example: <a class="govuk-link" href="http://somelink" class="analytics-click-event-trigger" data-event-label="Your GA label">Some text</a>
   $('.analytics-click-event-trigger').on('click', function () {
     var label = $(this).data('eventLabel')
     sendEvent('Navigation', 'Click', label)

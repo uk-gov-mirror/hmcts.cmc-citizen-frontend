@@ -7,20 +7,20 @@
 
 {% block content %}
 
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p>{{ t('You have 19 days to respond to the claim from the date the court issued it.') }}</p>
-      <p>{{ t('Find the exact deadline date in the letter or email you received explaining the claim.') }}</p>
-      <p>{{ t('We’ll send your response to the claimant (the person or organisation who says you owe them money).') }}</p>
+      <p class="govuk-body">{{ t('You have 19 days to respond to the claim from the date the court issued it.') }}</p>
+      <p class="govuk-body">{{ t('Find the exact deadline date in the letter or email you received explaining the claim.') }}</p>
+      <p class="govuk-body">{{ t('We’ll send your response to the claimant (the person or organisation who says you owe them money).') }}</p>
 
-      <h2 class="heading-medium">{{ t('If you don’t respond') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('If you don’t respond') }}</h2>
 
-      <p>{{ t('The claimant can apply for a <a target="_blank" href="{{ link }}">County Court Judgment (CCJ)</a> against you if you don’t respond before the deadline.'
+      <p class="govuk-body">{{ t('The claimant can apply for a <a target="_blank" href="{{ link }}">County Court Judgment (CCJ)</a> against you if you don’t respond before the deadline.'
         , { link: ['https://www.gov.uk/county-court-judgments-ccj-for-debt'] }) | safe }}</p>
 
-      <p>{{ t('They can use a CCJ to get the money from you, for example by applying to the court to send bailiffs to your home or business.') }}</p>
+      <p class="govuk-body">{{ t('They can use a CCJ to get the money from you, for example by applying to the court to send bailiffs to your home or business.') }}</p>
 
-      <p>{{ t('A CCJ may make it harder to get credit, such as a mobile phone contract, credit card or mortgage.') }}</p>
+      <p class="govuk-body">{{ t('A CCJ may make it harder to get credit, such as a mobile phone contract, credit card or mortgage.') }}</p>
 
       <form method="POST">
         {{ csrfProtection(csrf) }}
@@ -33,11 +33,11 @@
     </div>
     <div class="column-third">
       <aside class="govuk-related-items" role="complementary">
-        <h2 class="heading-medium" id="subsection-title">{{ t('Support') }}</h2>
+        <h2 class="govuk-heading-m" id="subsection-title">{{ t('Support') }}</h2>
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="font-xsmall">
-            <li><a href="https://www.gov.uk/make-court-claim-for-money/court-fees">{{ t('Money claim fees') }}</a></li>
-            <li><a href="/other-options">{{ t('Other options') }}</a></li>
+            <li><a class="govuk-link" href="https://www.gov.uk/make-court-claim-for-money/court-fees">{{ t('Money claim fees') }}</a></li>
+            <li><a class="govuk-link" href="/other-options">{{ t('Other options') }}</a></li>
             <li><a class="external" rel="external"
                    href="https://courttribunalfinder.service.gov.uk/courts/county-court-business-centre-ccbc"
                    target="_blank">{{ t('Contact us') }}</a></li>

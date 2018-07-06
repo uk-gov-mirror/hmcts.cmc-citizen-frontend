@@ -4,9 +4,9 @@
 {% set heading = 'About you and this claim' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <p>{{ t('I’m claiming as:') }}</p>
+        <p class="govuk-body">{{ t('I’m claiming as:') }}</p>
         <form method="POST" novalidate>
           {{ csrfProtection(csrf) }}
 

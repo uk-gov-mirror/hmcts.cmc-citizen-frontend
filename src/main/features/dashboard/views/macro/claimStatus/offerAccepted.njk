@@ -1,6 +1,6 @@
 {% macro offerAcceptedForClaimantDashboard(claim) %}
   {% set defendantName = claim.claimData.defendant.name %}
-  <p>
+  <p class="govuk-body">
     {{ t('You’ve signed the agreement. We’ve asked {{ defendantName }} to sign the agreement.',
       { defendantName: defendantName }) }}
   </p>
@@ -11,18 +11,18 @@
 {% macro offerAcceptedForClaimantClaimDetails(claim) %}
   {% set defendantName = claim.claimData.defendant.name %}
   <h2 class="heading-small">{{ t('Settle out of court') }}</h2>
-  <p>
+  <p class="govuk-body">
     {{ t('You’ve agreed to the offer made by {{ defendantName }} and signed an agreement to settle your claim. ',
       { defendantName: defendantName }) }}
   </p>
-  <p>
+  <p class="govuk-body">
     {{ t('We’ve asked {{ defendantName}} to sign the agreement.',
       { defendantName: defendantName }) }}
   </p>
 {% endmacro %}
 
 {% macro offerAcceptedForDefendantDashboard() %}
-  <p>
+  <p class="govuk-body">
     {{ t('The claimant has accepted your offer. You need to sign a legal agreement to settle out of court.') }}
   </p>
   {{ t('You have rejected the claim.') }}
@@ -30,17 +30,17 @@
 
 {% macro offerAcceptedForDefendantClaimDetails(claim) %}
   <h2 class="heading-small">{{ t('Settle out of court') }}</h2>
-  <p>
+  <p class="govuk-body">
     {{ t('The claimant has accepted your offer and signed a legal agreement. You need to sign the agreement to settle out of court.') }}
   </p>
-  <p>
+  <p class="govuk-body">
     {{ t('When you’ve both signed the agreement, the claim won’t proceed.') }}
   </p>
-  <p>
+  <p class="govuk-body">
     {{ _signAgreementLink(claim) }}
   </p>
 {% endmacro %}
 
 {% macro _signAgreementLink(claim) %}
-  <a href="{{ OfferPaths.countersignAgreementPage.evaluateUri({ externalId: claim.externalId }) }}">{{ t('Sign the agreement') }}</a>
+  <a class="govuk-link" href="{{ OfferPaths.countersignAgreementPage.evaluateUri({ externalId: claim.externalId }) }}">{{ t('Sign the agreement') }}</a>
 {% endmacro %}

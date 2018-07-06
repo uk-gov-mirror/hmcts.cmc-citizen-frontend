@@ -1,4 +1,4 @@
-{% from "components/phase-banner/macro.njk" import govukPhaseBanner %}
+{% from "phase-banner/macro.njk" import govukPhaseBanner %}
 
 {% block content %}{% endblock %}
 {% extends "template.njk" %}
@@ -9,19 +9,30 @@
   {% include "includes/head.njk" %}
 {% endblock %}
 
+{% set headerNavigationItems = [] %}
+
+{% if isLoggedIn %}
+  {% set headerNavigationItems = [
+    { text: t('My account'), href: '/dashboard' },
+    { text: t('Sign out'), href: '/logout' }
+  ] %}
+{% endif %}
+
+{% block header %}
+  {{ govukHeader({ serviceName: serviceName, navigation: headerNavigationItems }) }}
+{% endblock %}
+
 {% block beforeContent %}
   {{ govukPhaseBanner({
     tag: {
       text: "beta"
     },
-    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+    html: 'This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it. (opens in a new window)'
   }) }}
 {% endblock %}
 
-
-
 {% block cookie_message %}
-  <p>{{ t(cookieText) | safe }}</p>
+  <p class="govuk-body">{{ t(cookieText) | safe }}</p>
 {% endblock %}
 
 {% block proposition_header %}
@@ -36,9 +47,47 @@
   {% include "includes/support-links.njk" %}
 {% endblock %}
 
-{% block body_end %}
+{% block bodyEnd %}
   {% include "includes/scripts.njk" %}
   {% block additional_scripts %}{% endblock %}
+{% endblock %}
+
+{% set footerItems = [
+  {
+    href: AppPaths.cookiesPage.uri,
+    text: t('Cookies')
+  },
+  {
+    href: AppPaths.privacyPolicyPage.uri,
+    text: t('Privacy Policy')
+  },
+  {
+    href: AppPaths.termsAndConditionsPage.uri,
+    text: t('Terms and conditions')
+  },
+  {
+    href: 'https://www.gov.uk/help',
+    text: t('Help using GOV.UK')
+  },
+  {
+    href: AppPaths.contactUsPage.uri,
+    text: t('Contact us')
+  }
+] %}
+
+{% if featureToggles.testingSupport %}
+  {% set footerItems = (footerItems.push({
+    href: '/testing-support',
+    text: t('Testing support')
+  }), footerItems) %}
+{% endif %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: footerItems
+    }
+  }) }}
 {% endblock %}
 
 

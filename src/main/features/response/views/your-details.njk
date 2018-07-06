@@ -10,9 +10,9 @@
 {% endblock %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p>{{ t('The claimant provided these details. You can correct your address.') }}</p>
+      <p class="govuk-body">{{ t('The claimant provided these details. You can correct your address.') }}</p>
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
         <input type="hidden" name="type" value="{{ form.model.type }}">

@@ -13,7 +13,7 @@ HTMLCS.process(STANDARD, document.body, function () {
   if (errors.length > 0) {
     document.body.innerHTML +=
       "<div class='error-summary'>" +
-      "<h1 class='heading-medium'>" + errors.length + ' accessibility violations found</h1>' +
+      "<h1 class='govuk-heading-m'>" + errors.length + ' accessibility violations found</h1>' +
       '</div>'
 
     HTMLCSAuditor.run(STANDARD, null, { includeCss: false })

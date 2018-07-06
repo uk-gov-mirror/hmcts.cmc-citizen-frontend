@@ -10,12 +10,12 @@
 {% endblock %}
 
 {% block content %}
-<div class="grid-row">
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
     <form method="post" novalidate>
       {{ csrfProtection(csrf) }}
-      <p>{{ t('You only need to list your evidence for now. You may be asked to provide the actual evidence later.') }}</p>
+      <p class="govuk-body">{{ t('You only need to list your evidence for now. You may be asked to provide the actual evidence later.') }}</p>
 
       <h2 class="heading-small">{{ t('List your evidence') }}</h2>
 

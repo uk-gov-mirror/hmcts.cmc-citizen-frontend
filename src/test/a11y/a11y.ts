@@ -69,7 +69,7 @@ async function extractPageText (url: string): Promise<string> {
 
 function ensureHeadingIsIncludedInPageTitle (text: string): void {
   const title: string = text.match(/<title>(.*)<\/title>/)[1]
-  const heading: RegExpMatchArray = text.match(/<h1 class="heading-large">\s*(.*)\s*<\/h1>/)
+  const heading: RegExpMatchArray = text.match(/<h1 class="govuk-heading-l">\s*(.*)\s*<\/h1>/)
 
   if (heading) { // Some pages does not have heading section e.g. confirmation pages
     expect(title).to.be.equal(`${heading[1]} - Money Claims`)

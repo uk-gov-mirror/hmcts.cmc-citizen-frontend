@@ -1,12 +1,12 @@
 <div class="header-proposition">
   <div class="content">
-    <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
+    <a class="govuk-link" href="#proposition-links" class="js-header-toggle menu">Menu</a>
     <nav id="proposition-menu">
-      <a href="/" id="proposition-name">{% if serviceName %}{{ t(serviceName) }}{% endif %}</a>
+      <a class="govuk-link" href="/" id="proposition-name">{% if serviceName %}{{ t(serviceName) }}{% endif %}</a>
       <ul id="proposition-links" class="pull-right">
         {% if isLoggedIn %}
-          <li><a href="/dashboard" >{{ t('My account') }}</a></li>
-          <li><a href="/logout">{{ t('Sign out') }}</a></li>
+          <li><a class="govuk-link" href="/dashboard" >{{ t('My account') }}</a></li>
+          <li><a class="govuk-link" href="/logout">{{ t('Sign out') }}</a></li>
         {% endif %}
       </ul>
     </nav>

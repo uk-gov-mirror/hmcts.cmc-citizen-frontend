@@ -4,13 +4,13 @@
 {% set heading = 'Children aged 16 to 19 living with you' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form method="post" novalidate>
 
         {{ csrfProtection(csrf) }}
 
-        <p>{{ t('How many are both:') }}</p>
+        <p class="govuk-body">{{ t('How many are both:') }}</p>
 
         <ul class="list list-bullet">
           <li>{{ t('in full-time education or training') }}</li>

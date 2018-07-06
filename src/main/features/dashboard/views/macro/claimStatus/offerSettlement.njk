@@ -4,14 +4,14 @@
 
 {% macro offerSettlementReachedClaimDetails(claim) %}
   <h2 class="heading-small">{{ t('Agreement signed') }}</h2>
-  <p>
+  <p class="govuk-body">
     {{ t('You’ve both signed a legal agreement. The claim is now settled.') }}
   </p>
-  <p>
+  <p class="govuk-body">
     {{ _downloadAgreementLink(claim) }}
   </p>
 {% endmacro %}
 
 {% macro _downloadAgreementLink(claim) %}
-  <a href="{{ OfferPaths.agreementReceiver.evaluateUri({ externalId: claim.externalId }) }}">{{ t('Download the agreement') }}</a>
+  <a class="govuk-link" href="{{ OfferPaths.agreementReceiver.evaluateUri({ externalId: claim.externalId }) }}">{{ t('Download the agreement') }}</a>
 {% endmacro %}

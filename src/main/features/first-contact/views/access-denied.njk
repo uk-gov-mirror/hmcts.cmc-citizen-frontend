@@ -3,10 +3,10 @@
 {% set heading = 'You are not authorised to view the claim!' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p>{{ t('There was an error during your last operation. Please try again later.') }}</p>
-      <a href="/first-contact/claim-reference">{{ t('Click here to try again') }}</a>
+      <p class="govuk-body">{{ t('There was an error during your last operation. Please try again later.') }}</p>
+      <a class="govuk-link" href="/first-contact/claim-reference">{{ t('Click here to try again') }}</a>
     </div>
   </div>
 {% endblock %}

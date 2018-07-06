@@ -5,7 +5,7 @@
 {% set heading = 'Total amount you’re claiming' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
@@ -74,7 +74,7 @@
             </tbody>
           </table>
 
-          <p>{{ t('You don’t have to pay a hearing fee unless the claim goes to a hearing.') }}</p>
+          <p class="govuk-body">{{ t('You don’t have to pay a hearing fee unless the claim goes to a hearing.') }}</p>
 
           {{ feesTable('How these fees are calculated', feeTableContent , showHearingFee = true) }}
 

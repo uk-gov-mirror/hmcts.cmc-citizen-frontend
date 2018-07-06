@@ -27,7 +27,7 @@
 
 .status-block {
   &:not(:last-of-type) {
-    border-bottom: 1px solid $grey-2;
+    border-bottom: 1px solid govuk-colour('grey-2');
   }
 }
 

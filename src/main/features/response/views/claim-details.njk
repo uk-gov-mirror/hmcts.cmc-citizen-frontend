@@ -6,16 +6,16 @@
 {% from "amountBreakdown.njk" import amountBreakdownTable %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p><span class="bold-small">{{ t('Claim reference') }}:</span> {{ claim.claimNumber }}</p>
-      <p><span class="bold-small">{{ t('Claim amount') }}:</span> {{ claim.totalAmountTillToday | numeral }}</p>
+      <p class="govuk-body"><span class="bold-small">{{ t('Claim reference') }}:</span> {{ claim.claimNumber }}</p>
+      <p class="govuk-body"><span class="bold-small">{{ t('Claim amount') }}:</span> {{ claim.totalAmountTillToday | numeral }}</p>
 
       {{ amountBreakdownTable('View amount breakdown', claim, interestData) }}
-      <p><span class="bold-small">{{ t('Reason for claim') }}:</span></p>
-      <p>{{ claim.claimData.reason }}</p>
-      <p><span class="bold-small">{{ t('Download the claim') }}</span></p>
-      <p><a href="{{ pdfUrl.evaluateUri({ externalId: claim.externalId }) }}">{{ t('Download claim') }}</a> ({{ t('PDF') }})</p>
+      <p class="govuk-body"><span class="bold-small">{{ t('Reason for claim') }}:</span></p>
+      <p class="govuk-body">{{ claim.claimData.reason }}</p>
+      <p class="govuk-body"><span class="bold-small">{{ t('Download the claim') }}</span></p>
+      <p class="govuk-body"><a class="govuk-link" href="{{ pdfUrl.evaluateUri({ externalId: claim.externalId }) }}">{{ t('Download claim') }}</a> ({{ t('PDF') }})</p>
     </div>
   </div>
 {% endblock %}

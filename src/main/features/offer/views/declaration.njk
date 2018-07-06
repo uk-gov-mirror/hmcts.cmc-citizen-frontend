@@ -5,9 +5,9 @@
 {% set heading = 'Terms of the agreement' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p>
+      <p class="govuk-body">
           {{
             t('You need to sign the agreement.')
           }}
@@ -15,7 +15,7 @@
 
       {{ offerTable(claim.claimData.defendant.name + ': ' + offer.content, offer.completionDate) }}
 
-      <p>
+      <p class="govuk-body">
         {{
           t('This agreement settles the claim made by {{ claimantName }} against {{ defendantName }}. This includes all money owed in the claim, for example court fees, expenses or interest.', {
             claimantName: claim.claimData.claimant.name,
@@ -24,21 +24,21 @@
         }}
       </p>
 
-      <p>{{t('This agreement puts the claim on hold. Neither party can make any further claims relating to this case, other than to enforce it.')}}</p>
+      <p class="govuk-body">{{t('This agreement puts the claim on hold. Neither party can make any further claims relating to this case, other than to enforce it.')}}</p>
 
-      <p>{{t('Either party can view and download this agreement from their Money Claims account. Both parties should keep a copy of this agreement.')}}</p>
+      <p class="govuk-body">{{t('Either party can view and download this agreement from their Money Claims account. Both parties should keep a copy of this agreement.')}}</p>
 
 
-      <h3 class="heading-medium">{{ t('If the agreement is broken') }}</h3>
+      <h3 class="govuk-heading-m">{{ t('If the agreement is broken') }}</h3>
 
-      <p>{{ t('Either party can apply to:') }}</p>
+      <p class="govuk-body">{{ t('Either party can apply to:') }}</p>
       <ul class="list list-bullet">
         <li>{{ t('request a judgment for any money still owed from this agreement') }}</li>
         <li>{{ t('resume the original claim or counterclaim for the full amount of the claim') }}</li>
         <li>{{ t('ask the court to enforce any of the steps to be taken')}}
       </ul>
 
-      <p>
+      <p class="govuk-body">
         {{
           t('To apply, download and complete form N244 and send it to the County Court Business Centre. You need to say on the form which of the 3 options you’re applying for.', {
             n244formUri: 'http://formfinder.hmctsformfinder.justice.gov.uk/n244-eng.pdf',
@@ -47,9 +47,9 @@
         }}
       </p>
 
-      <h2 class="heading-medium">{{ t('Sign the agreement') }}</h2>
+      <h2 class="govuk-heading-m">{{ t('Sign the agreement') }}</h2>
 
-      <p>{{ t('Make sure this agreement includes everything you’ve agreed with {{ defendantName }} before signing. You won’t be able to change this later.') }}
+      <p class="govuk-body">{{ t('Make sure this agreement includes everything you’ve agreed with {{ defendantName }} before signing. You won’t be able to change this later.') }}
 
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}

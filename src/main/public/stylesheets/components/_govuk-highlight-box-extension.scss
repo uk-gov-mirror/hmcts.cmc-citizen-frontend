@@ -2,7 +2,7 @@
   a {
     &:visited,
     &:link {
-      color: $white;
+      color: govuk-colour('white');
     }
   }
 }

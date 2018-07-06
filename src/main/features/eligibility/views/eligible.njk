@@ -1,16 +1,26 @@
 {% extends "layout.njk" %}
+{% from "button/macro.njk" import govukButton %}
 
 {% set heading = 'You can use this service' %}
 
 {% block content %}
 
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p>
+      <h1 class="govuk-heading-l">{{ t(heading) }}</h1>
+
+      <p class="govuk-body">
         {{ t('Based on your answers you can make a money claim using this new service.') }}
       </p>
 
-      <a href="{{ nextPage }}" class="button analytics-click-event-trigger" data-event-label="Eligibility: You can use this service">{{ t('Continue') }}</a>
+      {{ govukButton({
+          text: t('Continue'),
+          href: nextPage,
+          classes: 'analytics-click-event-trigger',
+          attributes: { 'data-event-label': 'Eligibility: You can use this service' }
+        })
+      }}
+
     </div>
   </div>
 

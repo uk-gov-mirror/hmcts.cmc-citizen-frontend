@@ -4,14 +4,14 @@
 {% set heading = 'You have an extra 14 days to respond' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <p>
+      <p class="govuk-body">
         {{ t('You must respond before 4pm on {{ deadline }}.', { deadline: newDeadline | date }) }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('We’ll email both you and {{ claimant }} confirming the additional response time.', { claimant: claimantFullName}) }}
       </p>
 

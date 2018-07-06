@@ -3,22 +3,22 @@
 {% set heading = 'You can now make a legal agreement' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p>
+      <p class="govuk-body">
         {{ t('The agreement will be based on the offer from {{ defendantName }} you’ve just accepted. It has not been reviewed by court staff or a judge.', {
           defendantName: claim.claimData.defendant.name }) }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('You may avoid getting a County Court Judgment (CCJ) if you settle out of court. ') }}
       </p>
 
-      <p>
+      <p class="govuk-body">
         {{ t('You both need to sign the agreement for it to become a legal contract.') }}
-      <p>
+      <p class="govuk-body">
 
-      <a href="{{ OfferPaths.declarationPage.evaluateUri({ externalId: claim.externalId }) }}" role="button" class="button">
+      <a class="govuk-link" href="{{ OfferPaths.declarationPage.evaluateUri({ externalId: claim.externalId }) }}" role="button" class="button">
         {{ t('Make an agreement') }}
       </a>
     </div>

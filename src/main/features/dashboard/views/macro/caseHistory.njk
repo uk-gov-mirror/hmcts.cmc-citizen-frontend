@@ -59,7 +59,7 @@ ccjRequestedForDefendantClaimDetails %}
       {% elif state.status === ClaimStatus.OFFER_SETTLEMENT_REACHED %}
         {{ offerSettlementReachedClaimDetails(claim) }}
       {% else %}
-        <p>
+        <p class="govuk-body">
           {{ caseStatusForClaimant(state.status, claim) }}
         </p>
       {% endif %}
@@ -101,7 +101,7 @@ ccjRequestedForDefendantClaimDetails %}
       {% elif state.status === ClaimStatus.OFFER_SETTLEMENT_REACHED %}
           {{ offerSettlementReachedClaimDetails(claim) }}
       {% else %}
-        <p>
+        <p class="govuk-body">
           {{ caseStatusForDefendant(claim.status, claim) }}
         </p>
       {% endif %}
@@ -110,8 +110,8 @@ ccjRequestedForDefendantClaimDetails %}
 {% endmacro %}
 
 {% macro _settleOutOfCourtOption (claim) %}
-  <h2 class="heading-medium">{{ t('Settle out of court') }}</h2>
-  <p>{{ t('You may still <a href="{{ link }}">settle the claim out of court</a>. For example you could offer to fix goods you sold the claimant or suggest a payment.',
+  <h2 class="govuk-heading-m">{{ t('Settle out of court') }}</h2>
+  <p class="govuk-body">{{ t('You may still <a class="govuk-link" href="{{ link }}">settle the claim out of court</a>. For example you could offer to fix goods you sold the claimant or suggest a payment.',
       { link: OfferPaths.settleOutOfCourtPage.evaluateUri({ externalId: claim.externalId }) }) | safe }}</p>
-  <p>{{ t('You can avoid getting a County Court Judgment if the claimant accepts your offer.') }}</p>
+  <p class="govuk-body">{{ t('You can avoid getting a County Court Judgment if the claimant accepts your offer.') }}</p>
 {% endmacro %}

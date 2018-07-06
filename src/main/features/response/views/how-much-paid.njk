@@ -7,7 +7,7 @@
 {% set claimantFullName = claim.claimData.claimant.name %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form novalidate method="post">
         {{ csrfProtection(csrf) }}
@@ -19,7 +19,7 @@
         {{ textArea(label = t('Explain why you don’t owe the full amount.'), name = 'text', form = form) }}
 
         <div class="panel panel-border-wide">
-          <p>
+          <p class="govuk-body">
             {{ t('Your response will be sent to the claimant {{ claimantName }}.', { claimantName: claimantFullName }) }}
             {{ t('A judge will not consider your response unless your case goes to a hearing.') }}
             </p>

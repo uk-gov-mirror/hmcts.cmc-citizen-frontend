@@ -3,7 +3,7 @@
 }
 
 .task-number {
-  @include media (mobile) {
+  @include govuk-media-query (mobile) {
     margin-right: 0;
   }
 
@@ -11,12 +11,12 @@
 }
 
 .task {
-  border-bottom: 1px solid $grey-2;
+  border-bottom: 1px solid govuk-colour('grey-2');
   padding-bottom: 1rem;
   padding-top: 1rem;
 
   &:first-of-type {
-    border-top: 1px solid $grey-2;
+    border-top: 1px solid govuk-colour('grey-2');
   }
 
   a {
@@ -29,20 +29,20 @@
 }
 
 .task-list-heading {
-  @extend .heading-medium; // sass-lint:disable-line placeholder-in-extend heading-medium is simple, so its ok to extend
+  @extend .govuk-heading-m; // sass-lint:disable-line placeholder-in-extend govuk-heading-m is simple, so its ok to extend
   margin-bottom: 0;
   margin-top: 0;
 }
 
 .task-name {
-  @include media (mobile) {
+  @include govuk-media-query (mobile) {
     margin-left: 0;
   }
 
   margin-left: 70px;
 
   &.task-finished {
-    @include media (mobile) {
+    @include govuk-media-query (mobile) {
       display: inline-block;
       max-width: 59%;
     }
@@ -54,12 +54,12 @@ div {
     float: right;
 
     strong {
-      @include media (mobile) {
+      @include govuk-media-query (mobile) {
         font-size: 14px;
       }
 
-      background-color: $link-colour;
-      color: $white;
+      background-color: $govuk-link-colour;
+      color: govuk-colour('white');
       display: inline-block;
       font-size: 16px;
       font-weight: 700;
@@ -70,7 +70,7 @@ div {
   }
 
   .due-or-overdue {
-    color: $error-colour;
+    color: $govuk-error-colour;
     font-weight: bold;
   }
 }

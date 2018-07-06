@@ -6,7 +6,7 @@
 {% set heading = 'Enter your claim number' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <form method="post">
@@ -15,7 +15,7 @@
         {{ claimReferenceInput('Claim number', 'reference', form) }}
         {{ submitButton('Continue') }}
 
-        <p>
+        <p class="govuk-body">
           {{ internalLink(t('Don’t have a claim number?'), AppPaths.noClaimNumberPage.uri) }}
         </p>
       </form>

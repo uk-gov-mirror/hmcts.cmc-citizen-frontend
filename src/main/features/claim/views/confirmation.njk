@@ -7,7 +7,7 @@
 
 {% block content %}
 
-  <div class="grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <div class="govuk-box-highlight">
         <h1 class="bold-large">{{ t('Claim submitted') }}</h1>
@@ -16,13 +16,13 @@
           <h1 class="bold-large">{{ claimNumber }}</h1>
         </div>
         <p class="receipt-download-container">
-          <a href="/claim/{{ externalId }}/receipt">{{ t('Download your claim as a PDF') }}</a>
+          <a class="govuk-link" href="/claim/{{ externalId }}/receipt">{{ t('Download your claim as a PDF') }}</a>
         </p>
 
       </div>
 
-      <h2 class="heading-medium">{{ t('What happens next') }}</h2>
-      <p>{{ t('{{ defendantName }} has until 4pm on {{ responseDeadline }} to respond to your claim. They can ask for an extra 14 days if they need it.
+      <h2 class="govuk-heading-m">{{ t('What happens next') }}</h2>
+      <p class="govuk-body">{{ t('{{ defendantName }} has until 4pm on {{ responseDeadline }} to respond to your claim. They can ask for an extra 14 days if they need it.
               We’ll email you when they respond.',
           {
             defendantName : defendantName,
@@ -30,10 +30,10 @@
           }
         ) | safe }}
       </p>
-      <p>{{ t('You can request a default County Court Judgment (CCJ) against them if they don’t respond.') }}</p>
+      <p class="govuk-body">{{ t('You can request a default County Court Judgment (CCJ) against them if they don’t respond.') }}</p>
 
-      <h2 class="heading-medium">{{ t('If the defendant pays you') }}</h2>
-      <p>
+      <h2 class="govuk-heading-m">{{ t('If the defendant pays you') }}</h2>
+      <p class="govuk-body">
         {{ t('You need to email {{ supportEmailAddress }} to let us know. Include the date you were paid.',
           {
             supportEmailAddress: supportEmailAddress

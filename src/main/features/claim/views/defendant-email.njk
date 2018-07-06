@@ -4,10 +4,10 @@
 {% set heading = 'Their email address (optional)' %}
 
 {% block content %}
-  <div class="grid-row">
+  <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <p>{{ t('We’ll use this to tell them you’ve made a claim, as well as notifying them by post.') }}</p>
+        <p class="govuk-body">{{ t('We’ll use this to tell them you’ve made a claim, as well as notifying them by post.') }}</p>
         <form novalidate method="post">
           {{ csrfProtection(csrf) }}
 

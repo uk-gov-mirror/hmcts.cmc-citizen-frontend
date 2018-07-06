@@ -49,10 +49,10 @@
 {% endmacro %}
 
 {% block content %}
-<div class="grid-row">
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <p>{{ t('Put a minus (-) in front of the amount if you’re overdrawn. For example £-804.45.') }}</p>
+    <p class="govuk-body">{{ t('Put a minus (-) in front of the amount if you’re overdrawn. For example £-804.45.') }}</p>
 
     <form method="post" novalidate>
       {{ csrfProtection(csrf) }}
