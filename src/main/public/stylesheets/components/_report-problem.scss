@@ -1,4 +1,4 @@
-$report-problem-colour: #454a4c;
+$report-problem-colour: $govuk-secondary-text-colour;
 
 .report-error {
   @include govuk-media-query (tablet) {
@@ -10,17 +10,13 @@ $report-problem-colour: #454a4c;
   }
 
   clear: both;
-  color: $report-problem-colour;
   font-size: 16px;
   margin: 90px auto -80px 0;
   padding: 50px 0 0;
 
-  span {
+  & span {
     display: block;
     font-size: 14px;
-  }
-
-  a {
     color: $report-problem-colour;
   }
 }

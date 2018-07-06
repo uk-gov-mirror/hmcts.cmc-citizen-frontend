@@ -6,21 +6,15 @@
 {% set heading = 'Total amount you’re claiming' %}
 {% set additionalInformation = t('If you’re claiming interest, include that in the amount.') %}
 
-{% block content %}
+{% block main_content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% if form and form.hasErrors() %}
-        {{ govukErrorSummary({
-          titleText: t('There is a problem'),
-          errorList: form.errorsForDisplay()
-        }) }}
-      {% endif %}
-
       {% set name = 'claimValue' %}
 
       <form novalidate method="post" class="analytics-submit-event-trigger"
             data-event-action="Eligibility: Select claim value option"
             data-event-label-from="{{ name }}">
+
 
         {{ csrfProtection(csrf) }}
 

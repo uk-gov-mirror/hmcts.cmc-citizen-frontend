@@ -1,16 +1,20 @@
 {% from "phase-banner/macro.njk" import govukPhaseBanner %}
 
+{% extends "template.njk" %}
+
 {% block content %}
-  {{ super() }}
-  hi sadas
-  {% block afterContent %}
-    hi hi adsa ds
+  {% if form and form.hasErrors() %}
+    {{ govukErrorSummary({
+      titleText: t('There is a problem'),
+      errorList: form.errorsForDisplay()
+    }) }}
+  {% endif %}
+
+  {% block main_content %}
   {% endblock %}
 
+  {% include "includes/report_problem_link.njk" %}
 {% endblock %}
-
-
-{% extends "template.njk" %}
 
 {% block pageTitle %}{{ t(heading) }} - {{ t(serviceName) }}{% endblock %}
 
