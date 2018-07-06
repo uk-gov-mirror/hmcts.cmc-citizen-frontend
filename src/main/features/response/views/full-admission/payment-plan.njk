@@ -8,7 +8,7 @@
   {% include "payment-plan-calculation-scripts.njk" %}
 {% endblock %}
 
-{% block content %}
+{% block main_content %}
   <div class="govuk-grid-column-two-thirds">
 
     <p class="govuk-body">{{ t('The total amount claimed is {{ totalAmount }}. This includes the claim fee and any interest.', { totalAmount: totalAmount | numeral }) }} </p>

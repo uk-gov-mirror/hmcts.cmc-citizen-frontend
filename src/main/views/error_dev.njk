@@ -2,7 +2,7 @@
 
 {% set heading = 'Error' %}
 
-{% block content %}
+{% block main_content %}
   <h1 class="govuk-heading-l">{{ error.message }}</h1>
   {% if error.status %}
     <h3 class="govuk-heading-m">{{ error.status }}</h3>

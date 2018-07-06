@@ -1,7 +1,6 @@
 {% extends "layout.njk" %}
-{% from "form.njk" import csrfProtection, errorSummary, saveAndContinueButton %}
+{% from "form.njk" import csrfProtection, saveAndContinueButton %}
 {% from "radios/macro.njk" import govukRadios %}
-{% from "error-summary/macro.njk" import govukErrorSummary %}
 
 {% set heading = 'Total amount you’re claiming' %}
 {% set additionalInformation = t('If you’re claiming interest, include that in the amount.') %}
