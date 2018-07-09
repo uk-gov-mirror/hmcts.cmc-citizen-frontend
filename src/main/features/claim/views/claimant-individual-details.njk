@@ -1,6 +1,6 @@
 {% extends "layout.njk" %}
 {% from "form.njk" import csrfProtection, saveAndContinueButton, errorSummary %}
-{% from "party/details.njk" import partyDetailsFragment %}
+{% from "partyDetails.njk" import partyDetailsFragment %}
 
 {% set heading = 'Your details' %}
 
@@ -10,12 +10,13 @@
 
 {% block main_content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds govuk-form">
       <form method="post" novalidate>
         {{ csrfProtection(csrf) }}
 
         {{
           partyDetailsFragment(
+            heading,
             form,
             fields = [
               { label: 'Full name (include title)', name: 'name' }
