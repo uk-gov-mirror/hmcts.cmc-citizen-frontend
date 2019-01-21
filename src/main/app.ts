@@ -18,6 +18,7 @@ import { Feature as EligibilityFeature } from 'eligibility/index'
 import { Feature as ClaimIssueFeature } from 'claim/index'
 import { Feature as DefendantFirstContactFeature } from 'first-contact/index'
 import { Feature as DefendantResponseFeature } from 'response/index'
+import { Feature as SettlementAgreementFeature } from 'settlement-agreement/index'
 import { CsrfProtection } from 'modules/csrf'
 import { DashboardFeature } from 'dashboard/index'
 import { CCJFeature } from 'ccj/index'
@@ -26,6 +27,7 @@ import { TestingSupportFeature } from 'testing-support/index'
 import { FeatureToggles } from 'utils/featureToggles'
 import { ClaimantResponseFeature } from 'claimant-response/index'
 import { PaidInFullFeature } from 'paid-in-full/index'
+import { MediationFeature } from 'mediation/index'
 
 export const app: express.Express = express()
 
@@ -68,6 +70,11 @@ new DefendantFirstContactFeature().enableFor(app)
 new DefendantResponseFeature().enableFor(app)
 new CCJFeature().enableFor(app)
 new OfferFeature().enableFor(app)
+new SettlementAgreementFeature().enableFor(app)
+
+if (FeatureToggles.isEnabled('mediation')) {
+  new MediationFeature().enableFor(app)
+}
 
 if (FeatureToggles.isEnabled('paidInFull')) {
   new PaidInFullFeature().enableFor(app)

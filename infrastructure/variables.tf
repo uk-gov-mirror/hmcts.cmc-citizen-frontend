@@ -49,6 +49,10 @@ variable "feature_paid_in_full" {
   default = "false"
 }
 
+variable "feature_mediation" {
+  default = "false"
+}
+
 variable "feature_new_features_consent" {
   default = "false"
 }
@@ -104,4 +108,12 @@ variable "common_tags" {
 // will update when determined what we should set value to - or remove...
 variable "website_local_cache_sizeinmb" {
   default = "300"
+}
+
+variable "log_level" {
+  default = "INFO"
+}
+
+variable "node_debug" {
+  default = ""
 }
