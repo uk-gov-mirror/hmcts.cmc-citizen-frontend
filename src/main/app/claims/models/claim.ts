@@ -22,6 +22,8 @@ import { DateOfBirth } from 'forms/models/dateOfBirth'
 import { Individual } from 'claims/models/details/yours/individual'
 import { LocalDate } from 'forms/models/localDate'
 import { PartyType } from 'common/partyType'
+import { Bla } from 'dashboard/bla'
+import { PartialAdmissionResponse } from 'claims/models/response/partialAdmissionResponse'
 
 interface State {
   status: ClaimStatus
@@ -118,6 +120,10 @@ export class Claim {
       }
     }
     return false
+  }
+
+  get dashboard (): string {
+    return new Bla().showDashboardFor(this)
   }
 
   get status (): ClaimStatus {
@@ -385,6 +391,29 @@ export class Claim {
 
   private isSettlementReachedThroughAdmission (): boolean {
     return this.settlement && this.settlement.isThroughAdmissionsAndSettled()
+  }
+
+  public isFullAdmission (): boolean {
+    return this.response && this.response.responseType === ResponseType.FULL_ADMISSION
+  }
+
+  public isPartialAdmission (): boolean {
+    return this.response && this.response.responseType === ResponseType.PART_ADMISSION
+  }
+
+  public isInstalments (): boolean {
+    const response = this.response as PartialAdmissionResponse | FullAdmissionResponse
+    return response.paymentIntention && response.paymentIntention.paymentOption === PaymentOption.INSTALMENTS
+  }
+
+  public isPayImmediately (): boolean {
+    const response = this.response as PartialAdmissionResponse | FullAdmissionResponse
+    return response.paymentIntention && response.paymentIntention.paymentOption === PaymentOption.IMMEDIATELY
+  }
+
+  public isPayBySetDate (): boolean {
+    const response = this.response as PartialAdmissionResponse | FullAdmissionResponse
+    return response.paymentIntention && response.paymentIntention.paymentOption === PaymentOption.BY_SPECIFIED_DATE
   }
 
   private isSettlementAgreementRejected (): boolean {

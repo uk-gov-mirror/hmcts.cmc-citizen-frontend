@@ -68,6 +68,15 @@ describe('Dashboard page', () => {
             .expect(res => expect(res).to.be.successful.withText('Your money claims account', 'Continue with claim'))
         })
 
+        it.only('should render status with new system', async () => {
+          draftStoreServiceMock.resolveFind('response:partial-admission')
+
+          await request(app)
+            .get(Paths.dashboardPage.uri)
+            .set('Cookie', `${cookieName}=ABC`)
+            .expect(res => expect(res).to.be.successful.withText('dashboard loaded for claimant *party parrot*'))
+        })
+
         it('should render page with start claim button when everything is fine', async () => {
           draftStoreServiceMock.resolveFindNoDraftFound()
 

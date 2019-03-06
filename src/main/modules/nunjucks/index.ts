@@ -58,6 +58,8 @@ import { MadeBy } from 'offer/form/models/madeBy'
 import { PartyType } from 'common/partyType'
 import { IncomeExpenseSchedule } from 'common/calculate-monthly-income-expense/incomeExpenseSchedule'
 import { FreeMediationOption } from 'main/app/forms/models/freeMediation'
+import { Bla } from 'dashboard/bla'
+import * as fs from 'fs'
 
 const packageDotJson = require('../../../../package.json')
 
@@ -112,7 +114,15 @@ export class Nunjucks {
     nunjucksEnv.addGlobal('gaTrackingId', config.get<string>('analytics.gaTrackingId'))
     nunjucksEnv.addGlobal('t', (key: string, options?: TranslationOptions): string => this.i18next.t(key, options))
     nunjucksEnv.addFilter('date', dateFilter)
-    nunjucksEnv.addFilter('inputDate', dateInputFilter)
+    nunjucksEnv.addFilter('inputDate' +
+      '', dateInputFilter)
+
+    function render (claim, type): string {
+      const dashboardName = new Bla().showDashboardFor(claim)
+      const viewForClaimStatus = fs.readFileSync(path.join(__dirname, '../..', 'features', 'dashboard', 'views', 'macro', 'claimStatus', type, dashboardName + '.njk')).toString()
+      return nunjucks.renderString(viewForClaimStatus, { claim: claim })
+    }
+    nunjucksEnv.addFilter('render', render)
     nunjucksEnv.addFilter('addDays', addDaysFilter)
     nunjucksEnv.addFilter('pennies2pounds', convertToPoundsFilter)
     nunjucksEnv.addFilter('monthIncrement', monthIncrementFilter)
