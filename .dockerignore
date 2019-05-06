@@ -11,6 +11,8 @@
 !tsconfig.json
 
 !src/main/**
+!src/test/**
+!mocha.opts
 !config/**
 !types/**
 !src/integration-test/**
