@@ -23,7 +23,7 @@ describe('Contact us page',() => {
       it('should render cookies page when everything is fine', async() => {
         await request(server)
           .get(Paths.contactUsPage.uri)
-          .expect(res => expect(res).to.be.successful.withText('Contact us FAILME'))
+          .expect(res => expect(res).to.be.successful.withText('Contact us'))
       })
     }
   })
