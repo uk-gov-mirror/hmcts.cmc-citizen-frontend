@@ -14,6 +14,8 @@ COPY ./config /usr/src/app/config
 COPY ./src/main /usr/src/app/src/main
 COPY ./src/test /usr/src/app/src/test
 COPY ./src/integration-test /usr/src/app/src/integration-test
+COPY ./bin/run-pre-push-tests.sh /usr/src/app/
 
-ENTRYPOINT [ "yarn" ]
-CMD [ "test:routes" ]
+RUN ["chmod", "+x", "/usr/src/app/run-pre-push-tests.sh"]
+
+ENTRYPOINT ["/usr/src/app/run-pre-push-tests.sh"]

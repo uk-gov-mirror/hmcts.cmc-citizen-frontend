@@ -6,25 +6,12 @@ import 'test/routes/expectations'
 import { app } from 'main/app'
 import { Paths } from 'paths'
 
-var step;
-describe('Contact us page',() => {
-  let server;
-
-  beforeEach((done) => {
-    server = app.listen(0, done)
-  });
-
-  afterEach( (done) => {
-    server.close(done);
-  });
-
+describe('Contact us page', () => {
   describe('on GET', () => {
-    for (step = 0; step < 5000; step++) {
-      it('should render cookies page when everything is fine', async() => {
-        await request(server)
-          .get(Paths.contactUsPage.uri)
-          .expect(res => expect(res).to.be.successful.withText('Contact us'))
-      })
-    }
+    it('should render cookies page when everything is fine', async () => {
+      await request(app)
+        .get(Paths.contactUsPage.uri)
+        .expect(res => expect(res).to.be.successful.withText('Contact us'))
+    })
   })
 })
