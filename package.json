@@ -165,7 +165,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint",
-      "pre-push": "docker build -t citizen-pre-push -f yarn-test-routes.Dockerfile . && docker run --rm citizen-pre-push"
+      "pre-push": "docker build -t citizen-pre-push -f yarn-test-routes.Dockerfile . && docker run -v `${pwd}`:/usr/src/app --rm citizen-pre-push"
     }
   }
 }
