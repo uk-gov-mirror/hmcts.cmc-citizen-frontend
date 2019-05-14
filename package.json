@@ -164,7 +164,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "docker run citizen-route-tests",
+      "pre-commit": "docker build -t citizen-route-tests -f yarn-test-routes.Dockerfile . && docker run --rm citizen-route-tests",
       "pre-push": "yarn test && yarn test:routes"
     }
   }

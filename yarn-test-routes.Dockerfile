@@ -9,10 +9,11 @@ COPY package.json yarn.lock /usr/src/app/
 
 RUN yarn install && yarn cache clean
 
-COPY tsconfig.json gulpfile.js server.js types mocha.opts saucelabs.conf.js ./
-COPY ./src/main ./src/main
-COPY ./src/test ./src/test
-COPY config ./config
+COPY tsconfig.json types default.conf.js saucelabs.conf.js mocha.opts /usr/src/app/
+COPY ./config /usr/src/app/config
+COPY ./src/main /usr/src/app/src/main
+COPY ./src/test /usr/src/app/src/test
+COPY ./src/integration-test /usr/src/app/src/integration-test
 
 ENTRYPOINT [ "yarn" ]
 CMD [ "test:routes" ]
