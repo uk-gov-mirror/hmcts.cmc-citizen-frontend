@@ -63,7 +63,8 @@ exports.config = {
   },
     multiple: {
     parallel: {
-      chunks: parseInt(process.env.CHUNKS || '3')
+      chunks: parseInt(process.env.CHUNKS || '3'),
+       "browsers": [browser]
     }
   },
   mocha: {
