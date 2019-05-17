@@ -29,11 +29,6 @@ exports.config = {
   tests: './src/integration-test/tests/**/*_test.*',
   output: './output',
   timeout: 10000,
-//   multiple: {
-//     parallel: {
-//       chunks: parseInt(process.env.CHUNKS || '3')
-//     }
-//   },
   helpers: {
     WebDriverIO: {
       url: process.env.CITIZEN_APP_URL || 'https://localhost:3000',
@@ -64,6 +59,11 @@ exports.config = {
     },
     SaucelabsReporter: {
       require: './src/integration-test/helpers/saucelabsReporter'
+    }
+  },
+    multiple: {
+    parallel: {
+      chunks: parseInt(process.env.CHUNKS || '3')
     }
   },
   mocha: {
