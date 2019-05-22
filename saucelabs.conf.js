@@ -61,12 +61,12 @@ exports.config = {
       require: './src/integration-test/helpers/saucelabsReporter'
     }
   },
-    multiple: {
-    parallel: {
-      chunks: parseInt(process.env.CHUNKS || '3'),
-      browser: browser
-    }
-  },
+//     multiple: {
+//     parallel: {
+//       chunks: parseInt(process.env.CHUNKS || '3'),
+//       browser: browser
+//     }
+//   },
   mocha: {
     reporterOptions: {
       'codeceptjs-cli-reporter': {
