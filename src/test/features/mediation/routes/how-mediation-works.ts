@@ -21,7 +21,7 @@ const cookieName: string = config.get<string>('session.cookieName')
 const externalId = claimStoreServiceMock.sampleClaimObj.externalId
 const pagePath = MediationPaths.howMediationWorksPage.evaluateUri({ externalId })
 
-if (FeatureToggles.isEnabled('mediation')) {
+// if (FeatureToggles.isEnabled('mediation')) {
   describe('Mediation: how mediation works page', () => {
     attachDefaultHooks(app)
 
@@ -102,7 +102,7 @@ if (FeatureToggles.isEnabled('mediation')) {
       context('when user authorised', () => {
         context('when form is valid', () => {
           context('when mediation pilot is not enabled', () => {
-            it('should redirect to the free mediation page when everything is fine for the defendant', async () => {
+            it('should redirect to will you try mediation page when everything is fine for the defendant', async () => {
               idamServiceMock.resolveRetrieveUserFor(claimStoreServiceMock.sampleClaimObj.defendantId, 'citizen')
               checkCountyCourtJudgmentRequestedGuard(app, method, pagePath)
               claimStoreServiceMock.resolveRetrieveClaimByExternalId()
@@ -113,11 +113,12 @@ if (FeatureToggles.isEnabled('mediation')) {
               await request(app)
                 .post(pagePath)
                 .set('Cookie', `${cookieName}=ABC`)
+                .send({ mediationYes: 'yes' })
                 .expect(res => expect(res).to.be.redirect
                   .toLocation(MediationPaths.willYouTryMediation.evaluateUri({ externalId })))
             })
 
-            it('should redirect to the free mediation page when everything is fine for the claimant', async () => {
+            it('should redirect to the will you try mediation page when everything is fine for the claimant', async () => {
               idamServiceMock.resolveRetrieveUserFor(claimStoreServiceMock.sampleClaimObj.submitterId, 'citizen')
               checkCountyCourtJudgmentRequestedGuard(app, method, pagePath)
               claimStoreServiceMock.resolveRetrieveClaimByExternalId()
@@ -173,4 +174,4 @@ if (FeatureToggles.isEnabled('mediation')) {
       })
     })
   })
-}
+// }
