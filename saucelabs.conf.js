@@ -20,6 +20,7 @@ function setupDesiredCapabilitiesFor (browser, saucelabsTunnelName) {
   let desiredCapability = supportedBrowsers[browser]
   desiredCapability.tunnelIdentifier = saucelabsTunnelName
   desiredCapability.tags = ['cmc']
+  desiredCapability.acceptSslCert = true
   return desiredCapability
 }
 
