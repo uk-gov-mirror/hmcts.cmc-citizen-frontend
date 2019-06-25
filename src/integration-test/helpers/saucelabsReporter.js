@@ -8,7 +8,7 @@ const SUCCESS = true
 const FAILURE = false
 
 function reportBuildResultToSaucelabs (result) {
-  const sessionId = container.helpers('WebDriverIO').browser.requestHandler.sessionID
+  const sessionId = container.helpers('WebDriver').browser.requestHandler.sessionID
   const sauceUsername = process.env.SAUCE_USERNAME
 
   request.put({
