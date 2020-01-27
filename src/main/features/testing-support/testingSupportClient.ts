@@ -21,4 +21,5 @@ export class TestingSupportClient {
       throw new Error('Testing support is not enabled')
     }
   }
+
 }

@@ -1,4 +1,4 @@
-import { request as requestPromiseApi, RequestPromiseAPI } from 'client/request'
+import { request, request as requestPromiseApi, RequestPromiseAPI } from 'client/request'
 import * as HttpStatus from 'http-status-codes'
 import * as config from 'config'
 import { Claim } from 'claims/models/claim'
@@ -18,6 +18,7 @@ import { DirectionsQuestionnaireDraft } from 'directions-questionnaire/draft/dir
 import { OrdersDraft } from 'orders/draft/ordersDraft'
 import { OrdersConverter } from 'claims/ordersConverter'
 import { ReviewOrder } from 'claims/models/reviewOrder'
+import { CaseEventDetail } from 'claims/models/CaseEventDetail'
 
 export const claimApiBaseUrl: string = `${config.get<string>('claim-store.url')}`
 export const claimStoreApiUrl: string = `${claimApiBaseUrl}/claims`
@@ -40,6 +41,54 @@ function buildCaseSubmissionHeaders (claimant: User, features: string[]): object
 export class ClaimStoreClient {
   constructor (private request: RequestPromiseAPI = requestPromiseApi) {
     // Nothing to do
+  }
+
+  static retrieveCaseEventByClaimReference (claimReference: string, userAuthToken: string): Promise<Claim> {
+    if (!claimReference) {
+      return Promise.reject(new Error('Claim reference is required'))
+    }
+
+    return request
+      .get(`${claimStoreApiUrl}/${claimReference}`, {
+        headers: {
+          Authorization: `Bearer ${userAuthToken}`
+        }
+      })
+      .then((claim) => {
+        return new Claim().deserialize(claim)
+      })
+  }
+
+  static retrieveByClaimReference (claimReference: string, userAuthToken: string): Promise<Claim> {
+    if (!claimReference) {
+      return Promise.reject(new Error('Claim reference is required'))
+    }
+
+    return request
+      .get(`${claimStoreApiUrl}/${claimReference}`, {
+        headers: {
+          Authorization: `Bearer ${userAuthToken}`
+        }
+      })
+      .then((claim) => {
+        return new Claim().deserialize(claim)
+      })
+  }
+
+  static retrieveCaseEvent (claimReference: string, userAuthToken: string, user: User): Promise<CaseEventDetail> {
+    if (!claimReference) {
+      return Promise.reject(new Error('Claim reference is required'))
+    }
+
+    return request
+      .get(`${claimStoreApiUrl}/caseEvents/${claimReference}/${user}`, {
+        headers: {
+          Authorization: `Bearer ${userAuthToken}`
+        }
+      })
+      .then((caseEvent) => {
+        return new CaseEventDetail().deserialize(caseEvent)
+      })
   }
 
   savePaidInFull (externalId: string, submitter: User, draft: DraftPaidInFull): Promise<Claim> {

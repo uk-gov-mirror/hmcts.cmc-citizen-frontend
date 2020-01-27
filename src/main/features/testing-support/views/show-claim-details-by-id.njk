@@ -1,0 +1,52 @@
+{% extends "layout.njk" %}
+{% from "form.njk" import textInput, csrfProtection, submitButton, errorSummary %}
+
+{% set heading = 'Enter Claim ID to receive Case Details' %}
+
+{% block content %}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <form method="post" novalidate>
+        {{ csrfProtection(csrf) }}
+
+        {{ textInput('Claim ID', 'claimID', form) }}
+
+        {{ submitButton() }}
+      </form>
+    </div>
+  </div>
+  <div class="grid-row">
+    <div class="column-1">
+        {%  if claimNumber != null %}
+          {{ claimNumber }}
+        {% endif %}
+    </div>
+    <div class="column-2">
+      {%  if id != null %}
+        {{ id }}
+      {% endif %}
+    </div>
+    <div class="column-2">
+      {%  if created_date != null %}
+        {{ created_date }}
+      {% endif %}
+    </div>
+    <div class="column-2">
+      {%  if state != null %}
+        {{ state }}
+      {% endif %}
+    </div>
+    <div class="column-2">
+      {%  if eventid != null %}
+        {{ eventid }}
+      {% endif %}
+    </div>
+    <div class="column-2">
+      {%  if eventcreatedDate != null %}
+        {{ eventcreatedDate }}
+      {% endif %}
+    </div>
+    </div>
+  </div>
+{% endblock %}
+
