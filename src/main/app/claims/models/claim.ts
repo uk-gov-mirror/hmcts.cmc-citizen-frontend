@@ -31,6 +31,7 @@ import { DirectionOrder } from 'claims/models/directionOrder'
 import { ReviewOrder } from 'claims/models/reviewOrder'
 import { MediationOutcome } from 'claims/models/mediationOutcome'
 import { YesNoOption } from 'models/yesNoOption'
+import { Document } from 'claims/models/document'
 
 interface State {
   status: ClaimStatus
@@ -75,6 +76,7 @@ export class Claim {
   mediationOutcome: string
   pilotCourt: YesNoOption
   paperResponse: YesNoOption
+  claimDocuments?: Document[]
 
   get defendantOffer (): Offer {
     if (!this.settlement) {
@@ -370,6 +372,9 @@ export class Claim {
 
       if (input.paperResponse) {
         this.paperResponse = YesNoOption.fromObject(input.paperResponse)
+      }
+      if (input.claimDocumentCollection && input.claimDocumentCollection.claimDocuments) {
+        this.claimDocuments = input.claimDocumentCollection.claimDocuments.map((value) => { return new Document().deserialize(value) })
       }
     }
 

@@ -11,6 +11,8 @@ const fs = require('fs')
 const repoRoot = path.join(__dirname, '/')
 const govUkFrontendToolkitRoot = path.join(repoRoot, 'node_modules/govuk_frontend_toolkit/stylesheets')
 const govUkElementRoot = path.join(repoRoot, 'node_modules/govuk-elements-sass/public/sass')
+const govUkFrontendRoot = path.join(repoRoot, 'node_modules/govuk-frontend/')
+const appDirectory = `./src/main/common/components/imported`
 
 const assetsDirectory = './src/main/public'
 const stylesheetsDirectory = `${assetsDirectory}/stylesheets`
@@ -25,9 +27,20 @@ gulp.task('sass', (done) => {
         govUkElementRoot
       ]
     }))
-    .pipe(sass())
     .pipe(gulp.dest(stylesheetsDirectory))
     .pipe(livereload())
+  done()
+})
+
+gulp.task('sass-govuk-frontend', (done) => {
+  gulp.src(govUkFrontendRoot + '/*.scss')
+    .pipe(plumber())
+    .pipe(sass({
+      includePaths: [
+        `${govUkFrontendRoot}/**/*.scss`
+      ]
+    }))
+    .pipe(gulp.dest(`${stylesheetsDirectory}/govuk-frontend/`))
   done()
 })
 
@@ -38,6 +51,7 @@ gulp.task('copy-files', (done) => {
   copyA11ySniffer()
   copyClientModules()
   copyDatePickerDependencies()
+  copyComponents()
   done()
 })
 
@@ -75,8 +89,25 @@ function copyGovUkTemplate () {
   gulp.src([
     './node_modules/govuk_template_jinja/assets/stylesheets/**/*'
   ])
-    .pipe(replace('images/', '/stylesheets/lib/images/', { skipBinary: true }))
+    .pipe(replace('images/', '/stylesheets/lib/images/', {skipBinary: true}))
     .pipe(gulp.dest(`${assetsDirectory}/stylesheets/lib/`))
+}
+
+function copyComponent(component) {
+  gulp.src([
+    `./node_modules/govuk-frontend/components/${component}/**/*.njk`,
+    `./node_modules/govuk-frontend/components/${component}/**/*.ts`,
+    `./node_modules/govuk-frontend/components/${component}/**/*.json`,
+  ])
+    .pipe(gulp.dest(`${appDirectory}/${component}/`))
+  gulp.src([
+    `./node_modules/govuk-frontend/components/${component}/**/*.js`,
+  ])
+    .pipe(gulp.dest(`${assetsDirectory}/js/lib/components/${component}/`))
+}
+
+function copyComponents () {
+  ['tabs'].forEach(copyComponent)
 }
 
 function copyClientPolyfills () {
@@ -167,6 +198,7 @@ gulp.task('default',
   gulp.series(
     gulp.parallel(
       'sass',
+      'sass-govuk-frontend',
       'copy-files',
     ),
     gulp.parallel(
