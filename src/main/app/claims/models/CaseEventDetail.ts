@@ -1,6 +1,7 @@
 import { LocalDate } from 'forms/models/localDate'
-
+import { SignificantItem } from 'claims/models/SignificantItem'
 export class CaseEventDetail {
+
   userId: string
   userLastName: string
   userFirstName: string
@@ -14,6 +15,7 @@ export class CaseEventDetail {
   stateName: string
   data: Map<String, Object>
   dataClassification: Map<String, Object>
+  significantItem: SignificantItem
 
   deserialize (input?: any): CaseEventDetail {
     if (input) {
@@ -30,6 +32,7 @@ export class CaseEventDetail {
       this.stateName = input.stateName
       this.data = input.data
       this.dataClassification = input.dataClassification
+      this.significantItem = input.significantItem
     }
     return this
   }

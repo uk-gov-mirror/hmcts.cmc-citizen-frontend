@@ -22,6 +22,7 @@ import { CaseEventDetail } from 'claims/models/CaseEventDetail'
 
 export const claimApiBaseUrl: string = `${config.get<string>('claim-store.url')}`
 export const claimStoreApiUrl: string = `${claimApiBaseUrl}/claims`
+export const claimStoreEventsApiUrl: string = `${claimApiBaseUrl}/case-events`
 const claimStoreResponsesApiUrl: string = `${claimApiBaseUrl}/responses/claim`
 
 const logger = Logger.getLogger('claims/claimStoreClient')
@@ -43,22 +44,6 @@ export class ClaimStoreClient {
     // Nothing to do
   }
 
-  static retrieveCaseEventByClaimReference (claimReference: string, userAuthToken: string): Promise<Claim> {
-    if (!claimReference) {
-      return Promise.reject(new Error('Claim reference is required'))
-    }
-
-    return request
-      .get(`${claimStoreApiUrl}/${claimReference}`, {
-        headers: {
-          Authorization: `Bearer ${userAuthToken}`
-        }
-      })
-      .then((claim) => {
-        return new Claim().deserialize(claim)
-      })
-  }
-
   static retrieveByClaimReference (claimReference: string, userAuthToken: string): Promise<Claim> {
     if (!claimReference) {
       return Promise.reject(new Error('Claim reference is required'))
@@ -75,19 +60,22 @@ export class ClaimStoreClient {
       })
   }
 
-  static retrieveCaseEvent (claimReference: string, userAuthToken: string, user: User): Promise<CaseEventDetail> {
+  static retrieveCaseEvent (claimReference: string, userAuthToken: string): Promise<CaseEventDetail[]> {
     if (!claimReference) {
       return Promise.reject(new Error('Claim reference is required'))
     }
 
     return request
-      .get(`${claimStoreApiUrl}/caseEvents/${claimReference}/${user}`, {
+      .get(`${claimStoreEventsApiUrl}/${claimReference}`, {
         headers: {
           Authorization: `Bearer ${userAuthToken}`
         }
       })
-      .then((caseEvent) => {
-        return new CaseEventDetail().deserialize(caseEvent)
+      .then(caseEvents => {
+        console.log(caseEvents)
+        return new caseEvents.caseEventDetails.map((caseEvent) => {
+          return new CaseEventDetail().deserialize(caseEvent)
+        })
       })
   }
 

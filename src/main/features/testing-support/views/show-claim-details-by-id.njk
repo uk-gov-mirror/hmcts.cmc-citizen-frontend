@@ -15,38 +15,159 @@
       </form>
     </div>
   </div>
+  {% if claimNumber != null %}
   <div class="grid-row">
-    <div class="column-1">
-        {%  if claimNumber != null %}
-          {{ claimNumber }}
-        {% endif %}
-    </div>
-    <div class="column-2">
-      {%  if id != null %}
+  <h4 class="heading-medium">{{ t('Case Data') }}</h4>
+  <table>
+    <tr>
+      <th>
+        {{ t('ID') }}
+      </th>
+      <th>
+        {{ t('Claim Number') }}
+      </th>
+      <th>
+        {{ t('Created Date') }}
+      </th>
+      <th>
+        {{ t('State') }}
+      </th>
+      <th>
+        {{ t('Last Modified') }}
+      </th>
+    </tr>
+    <tr>
+      <th>
         {{ id }}
-      {% endif %}
-    </div>
-    <div class="column-2">
-      {%  if created_date != null %}
+      </th>
+      <th>
+        {{ claimNumber }}
+      </th>
+      <th>
         {{ created_date }}
-      {% endif %}
-    </div>
-    <div class="column-2">
-      {%  if state != null %}
+      </th>
+      <th>
         {{ state }}
-      {% endif %}
-    </div>
-    <div class="column-2">
-      {%  if eventid != null %}
-        {{ eventid }}
-      {% endif %}
-    </div>
-    <div class="column-2">
-      {%  if eventcreatedDate != null %}
-        {{ eventcreatedDate }}
-      {% endif %}
-    </div>
-    </div>
+      </th>
+      <th>
+        {{ t('12/02/2020') }}
+      </th>
+    </tr>
+  </table>
+  <h4 class="heading-medium">{{ t('Case Event') }}</h4>
+  <table>
+    <tr>
+      <th>
+        {{ t('ID') }}
+      </th>
+      <th>
+        {{ t('Event ID') }}
+      </th>
+      <th>
+        {{ t('Created Date') }}
+      </th>
+      <th>
+        {{ t('State ID') }}
+      </th>
+    </tr>
+    {% for caseEvent in caseEvents %}
+    <tr>
+      <th>
+        {{ caseEvent.id }}
+      </th>
+      <th>
+        {{ caseEvent.eventName }}
+      </th>
+      <th>
+        {{ caseEvent.createdDate }}
+      </th>
+      <th>
+        {{ caseEvent.stateId }}
+      </th>
+    </tr>
+    {% endfor %}
+  </table>
+    <h4 class="heading-medium">{{ t('Payment Data') }}</h4>
+    <table>
+      <tr>
+        <th>
+          {{ t('ID') }}
+        </th>
+        <th>
+          {{ t('Created Date') }}
+        </th>
+        <th>
+          {{ t('Last Updated Date') }}
+        </th>
+        <th>
+          {{ t('Amount') }}
+        </th>
+        <th>
+          {{ t('Payment Status') }}
+        </th>
+        <th>
+          {{ t('Reference') }}
+        </th>
+        <th>
+          {{ t('CCD Case Number') }}
+        </th>
+        <th>
+          {{ t('Case Reference') }}
+        </th>
+        <th>
+          {{ t('External Reference') }}
+        </th>
+      </tr>
+      <tr>
+        <th>
+          {{ t('1') }}
+        </th>
+        <th>
+          {{ t('12/02/2020') }}
+        </th>
+        <th>
+          {{ t('12/02/2020') }}
+        </th>
+        <th>
+          {{ t('35.00') }}
+        </th>
+        <th>
+          {{ t('started') }}
+        </th>
+        <th>
+          {{ t('RC-47382-7284') }}
+        </th>
+        <th>
+          {{ t('473892') }}
+        </th>
+        <th>
+          {{ t('784394-4532-53422-32') }}
+        </th>
+        <th>
+          {{ t('fhdjfey748374hjfd') }}
+        </th>
+      </tr>
+    </table>
+    <h4 class="heading-medium">{{ t('Fees Data') }}</h4>
+    <table>
+      <tr>
+        <th>
+          {{ t('ID') }}
+        </th>
+        <th>
+          {{ t('Calculated Amount') }}
+        </th>
+      </tr>
+      <tr>
+        <th>
+          {{ t('1') }}
+        </th>
+        <th>
+          {{ t('35.00') }}
+        </th>
+      </tr>
+    </table>
   </div>
+  {% endif %}
 {% endblock %}
 

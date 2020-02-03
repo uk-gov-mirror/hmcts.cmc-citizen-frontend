@@ -29,18 +29,17 @@ export default express.Router()
       } else {
         try {
           const claim: Claim = await ClaimStoreClient.retrieveByClaimReference(form.model.claimID, res.locals.user.bearerToken)
-          const caseEvent: CaseEventDetail = await ClaimStoreClient.retrieveCaseEvent(form.model.claimID, res.locals.user.bearerToken, res.locals.user)
+          const caseEvents: CaseEventDetail[] = await ClaimStoreClient.retrieveCaseEvent(form.model.claimID, res.locals.user.bearerToken)
           res.render(Paths.showClaimDetailsPage.associatedView, {
             form: form,
             claimNumber: claim.claimNumber,
             id: claim.id,
             created_date: claim.createdAt,
             state: claim.state,
-            eventid: caseEvent.id,
-            eventcreatedDate: caseEvent.createdDate
+            caseEvents: caseEvents
           })
         } catch (err) {
-          // console.log("error :(")
+          console.log("error :(")
         }
       }
     })
