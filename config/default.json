@@ -53,6 +53,10 @@
     "site-id": "AA00",
     "description": "Money Claims fees"
   },
+  "pcq": {
+    "url": "http://localhost:4000",
+    "tokenKey": "CMC_TOKEN_KEY"
+  },
   "eligibility": {
     "cookie": {
       "timeToLiveInMinutes": 2880
