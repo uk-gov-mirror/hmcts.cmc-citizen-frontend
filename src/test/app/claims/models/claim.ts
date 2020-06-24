@@ -1080,6 +1080,19 @@ describe('Claim', () => {
       expect(claim.status).to.be.equal(ClaimStatus.TRANSFERRED)
     })
   })
+
+  describe('isHandedOffToCCBC', () => {
+    let claim
+
+    beforeEach(() => {
+      claim = new Claim()
+      claim.state = 'BUSINESS_QUEUE'
+    })
+
+    it('should return ClaimStatus.BUSINESS_QUEUE ', () => {
+      expect(claim.state).to.be.equal('BUSINESS_QUEUE')
+    })
+  })
 })
 
 function prepareSettlement (paymentIntention: PaymentIntention, party: MadeBy): Settlement {
