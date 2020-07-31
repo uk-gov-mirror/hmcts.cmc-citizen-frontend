@@ -12,36 +12,61 @@ class PcqHelper extends codecept_helper {
   // this silently bypasses PCQ without throwing any errors
   async bypassPCQ () {
     const helper = this.helpers['WebDriver'];
-    const heading = await helper.grabTextFrom('h1');
-    console.log(heading);
-    if (heading === 'Equality and diversity questions') {
-      // reject answering PCQ
-      return this.rejectAnsweringPCQ()
-    } else if (heading === 'Make a money claim') {
-      // silently move on.
-      console.log('PCQ is disabled');
-      Promise.reject(false)
-    } else if (heading === 'Sorry, there is a problem with the service') {
-      // silently move on.
-      console.log('Error in PCQ Service, hence Continuing to CMC');
-      return helper.click(`Continue`);
+    let pcqDisabled = false;
+    const heading = await helper.grabTextFrom('h1')
+    .catch(() => {
+      pcqDisabled = true;
+    })
+
+    if (pcqDisabled) {
+      return false;
+    }
+    
+    switch(heading) {
+      case 'Equality and diversity questions':
+        this.rejectAnsweringPCQ()
+        return true
+        break;
+      case 'Make a money claim':
+        console.log('PCQ is disabled');
+        return false
+        break;
+      case 'Sorry, there is a problem with the service':
+        console.log('Error in PCQ Service, hence continuing to CMC jourey');
+        return false
+        break;
+      default:
+        console.log('PCQ is disabled due to an unknown reason')
+        return false
     }
   }
   async checkPCQHealth () {
     const helper = this.helpers['WebDriver'];
-    const heading = await helper.grabTextFrom('h1');
-    console.log(heading);
-    if (heading === 'Equality and diversity questions') {
-      //if it is up and running
-      return true
-    } else if (heading === 'Make a money claim') {
-      // silently move on.
-      console.log('PCQ is disabled after PCQ Health');
-      return false
-    } else if (heading === 'Sorry, there is a problem with the service') {
-      // silently move on.
-      console.log('Error in PCQ Service, hence Continuing to CMC');
-      return helper.click(`Continue`);
+    let pcqDisabled = false;
+    const heading = await helper.grabTextFrom('h1')
+    .catch(() => {
+      pcqDisabled = true;
+    })
+
+    if (pcqDisabled) {
+      return false;
+    }
+    
+    switch(heading) {
+      case 'Equality and diversity questions':
+        return true
+        break;
+      case 'Make a money claim':
+        console.log('PCQ is disabled.');
+        return false
+        break;
+      case 'Sorry, there is a problem with the service':
+        console.log('Error in PCQ Service, hence continuing to CMC jourey');
+        return false
+        break;
+      default:
+        console.log('PCQ is disabled due to an unknown reason')
+        return false
     }
   }
 }
