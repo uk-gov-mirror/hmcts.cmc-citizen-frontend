@@ -3818,7 +3818,7 @@ __metadata:
     tslint-microsoft-contrib: "npm:^6.2.0"
     typescript: "npm:^3.9.8"
     urlencode: "npm:^1.1.0"
-    uuid: "npm:^3.4.0"
+    uuid: "npm:^14.0.0"
     webdriverio: "npm:^7.7.4"
   languageName: unknown
   linkType: soft
@@ -14828,6 +14828,15 @@ __metadata:
   version: 1.0.1
   resolution: "utils-merge@npm:1.0.1"
   checksum: 10/5d6949693d58cb2e636a84f3ee1c6e7b2f9c16cb1d42d0ecb386d8c025c69e327205aa1c69e2868cc06a01e5e20681fbba55a4e0ed0cce913d60334024eae798
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "uuid@npm:14.0.0"
+  bin:
+    uuid: dist-node/bin/uuid
+  checksum: 10/8ee9b98f9650e25555515f7a28d3c3ae9364e72f7bb19b9e08b681bc135338beba5509b2830f6ae1cfaba4d45401da0d16d4d109b977097bc3d6ba0c5583341b
   languageName: node
   linkType: hard
 
