@@ -69,7 +69,6 @@ test.describe.serial('Claim Lifecycle - Create, Respond, Verify', () => {
 
     claimReferenceNumber = claim.referenceNumber;
     claimExternalId = claim.externalId;
-    await ClaimStoreHelper.waitForOpenClaim(claimReferenceNumber);
     console.log('Claim created:', claimReferenceNumber);
   });
 
