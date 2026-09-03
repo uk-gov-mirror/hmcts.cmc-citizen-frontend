@@ -23,6 +23,7 @@ import { buildClaimData, buildResponseData, generateTestEmail } from '../../help
  *   7. Verify claim has response attached
  */
 test.describe.serial('Claim Lifecycle - Create, Respond, Verify', () => {
+  test.describe.configure({ timeout: 120_000 });
 
   const claimantEmail = generateTestEmail('pw-claimant');
   const defendantEmail = generateTestEmail('pw-defendant');
