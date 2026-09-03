@@ -172,4 +172,34 @@ export class ClaimStoreHelper {
       `Claim ${referenceNumber} did not become OPEN within ${maxAttempts * intervalMs / 1000}s`
     );
   }
+
+  /**
+   * Waits until the testing-support defendant link is visible on the claim.
+   * The CCD update is asynchronous, so a successful link response does not
+   * always mean the response event can be submitted immediately.
+   */
+  static async waitForDefendantLinked(
+    referenceNumber: string,
+    token: string,
+    defendantId: string
+  ): Promise<void> {
+    const maxAttempts = 120;
+    const intervalMs = 500;
+
+    for (let i = 0; i < maxAttempts; i++) {
+      try {
+        const claim = await this.retrieveByReferenceNumber(referenceNumber, token);
+        if (claim.defendantId === defendantId) {
+          return;
+        }
+      } catch {
+        // retry on transient claim-store/CCD read errors
+      }
+      await new Promise((resolve) => setTimeout(resolve, intervalMs));
+    }
+
+    throw new Error(
+      `Claim ${referenceNumber} was not linked to defendant ${defendantId} within ${maxAttempts * intervalMs / 1000}s`
+    );
+  }
 }
